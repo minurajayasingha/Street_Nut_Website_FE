@@ -1,0 +1,9 @@
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-10);
+  line-height: var(--lh-10);
+  font-weight: var(--fw-regular);
+  text-transform: uppercase;
+  color: var(--color-text);
+  background: var(--color-bg);
+}

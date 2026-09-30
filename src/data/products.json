@@ -1,0 +1,5 @@
+[
+  { "id": "p1", "slug": "brush-logo-tee", "name": "Brush Logo Tee", "price": 45, "currency": "EUR", "image": "/products/placeholder.png" },
+  { "id": "p2", "slug": "street-hoodie", "name": "Street Hoodie", "price": 95, "currency": "EUR", "image": "/products/placeholder.png" },
+  { "id": "p3", "slug": "nut-cap", "name": "Nut Cap", "price": 35, "currency": "EUR", "image": "/products/placeholder.png" }
+]

@@ -1,0 +1,40 @@
+:root {
+  --font-body: 'Helvetica Neue', HelveticaNeue, Helvetica, Arial, sans-serif;
+
+  --fs-10: 10px;
+  --fs-12: 12px;
+  --lh-10: 14px;
+  --lh-12: 14px;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+
+  --color-text: #000;
+  --color-bg: #fff;
+
+  --logo-width: 100px;
+  --logo-offset: 10px;
+  --header-height: 81px;
+  --header-pad: 10px;
+  --header-actions-top: 27px;
+  --header-actions-gap: 20px;
+  --fs-header: var(--fs-12);
+  --lh-header: var(--lh-12);
+}
+
+/* Desktop breakpoint measured on reference: 64.0625rem = 1025px */
+@media (min-width: 1025px) {
+  :root {
+    --logo-width: 120px;
+    --logo-offset: 20px;
+    --header-height: 54px;
+    --header-pad: 20px;
+    --header-actions-top: 20px;
+    --header-actions-gap: 15px;
+    --fs-header: var(--fs-10);
+    --lh-header: var(--lh-10);
+    --nav-left: 34px;
+    --nav-top: 99px;
+    --nav-pitch: 20px;
+  }
+}

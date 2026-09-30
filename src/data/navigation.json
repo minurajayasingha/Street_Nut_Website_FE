@@ -1,0 +1,24 @@
+{
+  "primary": [
+    { "label": "New Arrivals", "href": "/collections/new-arrivals" },
+    { "label": "Tees", "href": "/collections/tees" },
+    { "label": "Outerwear", "href": "/collections/outerwear" },
+    { "label": "Headwear", "href": "/collections/headwear" },
+    { "label": "Knits", "href": "/collections/knits" },
+    { "label": "Swimwear", "href": "/collections/swimwear" },
+    { "label": "Tops & Shirts", "href": "/collections/tops-shirts" },
+    { "label": "Bottoms", "href": "/collections/bottoms" },
+    { "label": "Denim", "href": "/collections/denim" },
+    { "label": "Sweats", "href": "/collections/sweats" },
+    { "label": "Sunglasses", "href": "/collections/sunglasses" },
+    { "label": "Accessories", "href": "/collections/accessories" }
+  ],
+  "secondary": [
+    { "label": "Archive", "href": "/archive" },
+    { "label": "Chapters", "href": "/chapters" },
+    { "label": "Support", "href": "/support" },
+    { "label": "Account", "href": "/account" },
+    { "label": "Newsletter", "href": "/newsletter" },
+    { "label": "Legal", "href": "/legal" }
+  ]
+}

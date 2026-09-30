@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Logs / OS / editor
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local tooling & planning notes
+.claude/
+CLAUDE.md
+docs/superpowers/
+.playwright-mcp/
+.superpowers/

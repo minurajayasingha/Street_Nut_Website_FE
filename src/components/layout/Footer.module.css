@@ -1,0 +1,17 @@
+/* Copyright is pinned bottom-left on desktop and hidden on mobile (as on the reference) */
+.footer {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .footer {
+    display: block;
+    position: fixed;
+    left: var(--nav-left);
+    bottom: 19px;
+    z-index: 40;
+    font-size: var(--fs-10);
+    line-height: var(--lh-10);
+    font-weight: var(--fw-medium);
+  }
+}

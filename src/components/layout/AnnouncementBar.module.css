@@ -1,0 +1,26 @@
+.bar {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  font-weight: var(--fw-medium);
+  text-align: center;
+}
+
+.dash {
+  flex: none;
+}
+
+.hide {
+  flex: none;
+  font-weight: var(--fw-medium);
+  line-height: inherit;
+}
+
+/* The announcement is not shown at mobile widths on the reference */
+@media (max-width: 1024px) {
+  .bar {
+    display: none;
+  }
+}
