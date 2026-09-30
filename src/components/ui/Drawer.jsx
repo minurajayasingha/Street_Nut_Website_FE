@@ -16,9 +16,6 @@ export default function Drawer({ open, onClose, label, children }) {
   if (!open) return null;
   return (
     <div className={styles.panel} role="dialog" aria-modal="true" aria-label={label}>
-      <button className={styles.close} onClick={onClose}>
-        Close
-      </button>
       {children}
     </div>
   );

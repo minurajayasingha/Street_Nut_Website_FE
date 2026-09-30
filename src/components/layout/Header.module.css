@@ -56,15 +56,64 @@
   margin-bottom: calc(var(--nav-pitch, 20px) - var(--lh-10));
 }
 
+.navLinkActive {
+  text-decoration: underline;
+}
+
+.subNav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subItem {
+  margin-bottom: calc(var(--nav-pitch, 20px) - var(--lh-10));
+}
+
+.subItem:last-child {
+  margin-bottom: 0;
+}
+
+.subLink {
+  display: block;
+}
+
 .separator {
   display: block;
   height: 13px;
   line-height: 13px;
 }
 
+.region {
+  text-transform: none;
+  text-align: left;
+}
+
 .drawerLink {
   display: block;
-  padding: 6px 0;
+  margin-bottom: var(--drawer-row-gap);
+}
+
+.drawerToggle {
+  display: flex;
+  align-items: center;
+  gap: var(--drawer-caret-gap);
+  text-align: left;
+}
+
+.drawerCaret {
+  flex: none;
+  transform: rotate(90deg);
+}
+
+.drawerCaretOpen {
+  transform: rotate(180deg);
+}
+
+.drawerSeparator {
+  display: block;
+  height: var(--drawer-separator-height);
+  line-height: 0;
 }
 
 /* Desktop shows the side nav; mobile shows MENU + drawer */

@@ -1,0 +1,21 @@
+{
+  "title": "Accessibility",
+  "blocks": [
+    {
+      "type": "text",
+      "text": "Streetnut is committed to digital accessibility and to conforming to the Web Content Accessibility Guidelines (WCAG) 2.1, Level A and AA, along with other applicable regulations."
+    },
+    {
+      "type": "text",
+      "text": "We review our website on an ongoing basis against best practices, with support from accessibility professionals and users of assistive technologies. If you run into an accessibility barrier on our website, we want to hear from you.\n\n[Accessibility tools and feedback](/support)"
+    },
+    {
+      "type": "text",
+      "text": "**Our contact information**\nRegardless of where you are, please send any question or request about accessibility to [support@streetnut.com](mailto:support@streetnut.com)."
+    },
+    {
+      "type": "text",
+      "text": "Communication can also be addressed to:\nStreetnut Customer Support\nAccessibility Team\nStreet name 1, City, Country"
+    }
+  ]
+}

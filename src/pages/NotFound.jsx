@@ -1,3 +1,5 @@
+import PlaceholderPage from '../components/ui/PlaceholderPage';
+
 export default function NotFound() {
-  return <h1>Page not found</h1>;
+  return <PlaceholderPage title="Page not found" tone="error" />;
 }

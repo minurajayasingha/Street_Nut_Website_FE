@@ -1,0 +1,130 @@
+[
+  {
+    "slug": "terms-of-use",
+    "title": "Terms of Use",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Welcome to Streetnut. By visiting or buying from this website you agree to the terms below. Please read them carefully before you place an order or create an account.\n\n_Last updated: 1 January 2026_"
+      },
+      {
+        "type": "text",
+        "text": "**1. Using the website**\nYou may use this website for lawful purposes only. You agree not to misuse it, interfere with its operation, try to gain unauthorized access to any part of it, or use it to send unsolicited marketing or harmful code."
+      },
+      {
+        "type": "text",
+        "text": "**2. Accounts**\nIf you create an account you are responsible for keeping your login details safe and for all activity under your account. Please tell us straight away if you think someone else has used it."
+      },
+      {
+        "type": "text",
+        "text": "**3. Products and pricing**\nWe try to describe and display our products as accurately as possible, but colors and details may vary slightly on your screen. Prices are shown in euros and may change without notice. We may refuse or cancel an order if a product is unavailable or a price was shown in error."
+      },
+      {
+        "type": "text",
+        "text": "**4. Orders and payment**\nAn order is only accepted once we send you a shipping confirmation. By placing an order you confirm that:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "You are at least 18 years old or have permission from a parent or guardian.",
+          "The details you give us are accurate and complete.",
+          "You are authorized to use the payment method you choose."
+        ]
+      },
+      {
+        "type": "text",
+        "text": "**5. Intellectual property**\nAll content on this website, including logos, images, text and graphics, belongs to Streetnut or its licensors and is protected by copyright and trademark law. You may not copy, reproduce or distribute it without our written permission."
+      },
+      {
+        "type": "text",
+        "text": "**6. Limitation of liability**\nTo the fullest extent permitted by law, Streetnut is not liable for any indirect or consequential loss arising from your use of this website or from products bought through it."
+      },
+      {
+        "type": "text",
+        "text": "**7. Changes to these terms**\nWe may update these terms from time to time. The date at the top shows when they were last changed. By continuing to use the website you accept the updated terms."
+      },
+      {
+        "type": "text",
+        "text": "**8. Contact**\nIf you have questions about these terms, contact [support@streetnut.com](mailto:support@streetnut.com)."
+      }
+    ]
+  },
+  {
+    "slug": "privacy-policy",
+    "title": "Privacy Policy",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "This policy explains how Streetnut collects, uses and protects your personal information when you use our website, buy our products or contact us.\n\n_Last updated: 1 January 2026_"
+      },
+      {
+        "type": "text",
+        "text": "**Information we collect**\nWe collect information you give us directly and information collected automatically when you use the website:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Contact details, such as your name, email address, phone number and delivery address.",
+          "Order details and payment information, which is processed securely by our payment partners.",
+          "Device and usage data, such as your IP address, browser type and the pages you visit.",
+          "Messages you send us, for example through live chat or email."
+        ]
+      },
+      {
+        "type": "text",
+        "text": "**How we use your information**\nWe use your information to process and deliver your orders, provide customer support, improve our website, prevent fraud and, where you have agreed, send you news about new releases and offers."
+      },
+      {
+        "type": "text",
+        "text": "**Sharing your information**\nWe only share your information with trusted partners who help us run the business, such as payment providers, couriers and website hosting services. They may only use it to provide their services to us. We do not sell your personal information."
+      },
+      {
+        "type": "text",
+        "text": "**Cookies**\nWe use cookies and similar technologies to keep the website working, remember your preferences and understand how the site is used. You can change your cookie settings in your browser at any time."
+      },
+      {
+        "type": "text",
+        "text": "**How long we keep it**\nWe keep your information only for as long as needed for the purposes described here, or as required by law."
+      },
+      {
+        "type": "text",
+        "text": "**Your rights**\nDepending on where you live, you may have the right to access, correct, delete or move your personal information, and to object to or limit how we use it. To make a request, see the Personal Info section or email [support@streetnut.com](mailto:support@streetnut.com)."
+      }
+    ]
+  },
+  {
+    "slug": "personal-info",
+    "title": "Personal Info",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "You are in control of your personal information. This section explains how to see, change or remove the information we hold about you."
+      },
+      {
+        "type": "text",
+        "text": "**What you can ask us to do**\nYou can ask us at any time to:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Send you a copy of the personal information we hold about you.",
+          "Correct information that is wrong or out of date.",
+          "Delete your personal information, where we are not required to keep it.",
+          "Stop us using your information for marketing."
+        ]
+      },
+      {
+        "type": "text",
+        "text": "**How to make a request**\nEmail [support@streetnut.com](mailto:support@streetnut.com) from the address linked to your account, with the subject line \"Personal information request\" and a short description of what you need. We may ask you to confirm your identity before we act on it."
+      },
+      {
+        "type": "text",
+        "text": "**How long it takes**\nWe aim to reply within 30 days. If your request is complex we may need longer, and we will let you know."
+      },
+      {
+        "type": "text",
+        "text": "**Unsubscribing from marketing**\nYou can unsubscribe from marketing emails at any time using the link at the bottom of each email. This does not affect service messages about your orders."
+      }
+    ]
+  }
+]

@@ -1,0 +1,20 @@
+.page {
+  margin-bottom: var(--page-end-gap);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.section:not(:last-child) {
+  margin-bottom: var(--page-section-gap);
+}
+
+.title {
+  --page-title-gap: var(--page-title-gap-wide);
+}

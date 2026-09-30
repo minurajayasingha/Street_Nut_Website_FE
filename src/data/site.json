@@ -1,1 +1,8 @@
-{ "name": "Streetnut", "announcement": "Free standard shipping on orders over 150 EUR" }
+{
+  "name": "Streetnut",
+  "announcement": "Free standard shipping on orders over 150 EUR",
+  "region": {
+    "label": "US / $",
+    "mobileLabel": "USD / $"
+  }
+}

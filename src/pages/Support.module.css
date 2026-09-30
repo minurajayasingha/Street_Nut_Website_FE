@@ -1,0 +1,35 @@
+.contactTitle {
+  --page-title-gap: var(--page-title-gap-wide);
+}
+
+.text {
+  margin-bottom: var(--page-section-gap);
+  line-height: var(--lh-rte);
+}
+
+.text > * + * {
+  margin-top: var(--page-block-gap);
+}
+
+.text > .chat {
+  display: block;
+  margin-top: 0;
+  line-height: inherit;
+  text-align: left;
+  text-transform: inherit;
+}
+
+.text strong {
+  font-weight: var(--fw-bold);
+}
+
+.faqTitle {
+  --page-title-gap: var(--faq-title-gap);
+}
+
+.faq {
+  --accordion-pad-y: var(--faq-item-pad-y);
+  --accordion-content-gap: var(--faq-content-gap);
+  --accordion-content-lh: var(--faq-content-lh);
+  --accordion-icon-gap: var(--faq-icon-gap);
+}

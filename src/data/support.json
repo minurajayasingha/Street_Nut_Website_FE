@@ -1,0 +1,45 @@
+{
+  "contact": {
+    "title": "Contact Us",
+    "chatHeading": "Chat",
+    "chatLabel": "Start a live chat",
+    "emailHeading": "Contact",
+    "email": "support@streetnut.com",
+    "hoursHeading": "Customer support hours",
+    "hours": "Monday – Friday 9:00am – 5:00pm CET",
+    "hoursNote": "Excluding weekends and public holidays.",
+    "social": [
+      { "label": "Instagram", "href": "https://instagram.com/streetnut" },
+      { "label": "TikTok", "href": "https://tiktok.com/@streetnut" },
+      { "label": "YouTube", "href": "https://youtube.com/@streetnut" },
+      { "label": "Facebook", "href": "https://facebook.com/streetnut" }
+    ]
+  },
+  "faqTitle": "Frequently Asked Questions",
+  "faq": [
+    { "id": "change-order", "question": "Can I change my order after placing it?", "answer": "Answer text will be added here." },
+    { "id": "wrong-address", "question": "I entered the wrong delivery address. How can I fix it?", "answer": "Answer text will be added here." },
+    { "id": "cancel-order", "question": "How do I cancel my order?", "answer": "Answer text will be added here." },
+    { "id": "start-return", "question": "How do I start a return?", "answer": "Answer text will be added here." },
+    { "id": "order-confirmed", "question": "How do I know my order is confirmed?", "answer": "Answer text will be added here." },
+    { "id": "delivery-time", "question": "When will my order arrive?", "answer": "Answer text will be added here." },
+    { "id": "international", "question": "Do you deliver outside the EU?", "answer": "Answer text will be added here." },
+    { "id": "tracking-delivered", "question": "My tracking says the order was delivered, but I have not received it. What should I do?", "answer": "Answer text will be added here." },
+    { "id": "order-cancelled", "question": "Why was my order cancelled?", "answer": "Answer text will be added here." },
+    { "id": "payment-methods", "question": "Which payment methods do you accept?", "answer": "Answer text will be added here." },
+    { "id": "sizing", "question": "How do I know which size to choose?", "answer": "Answer text will be added here." },
+    { "id": "new-drops", "question": "How do I find out when new drops are released?", "answer": "Answer text will be added here." },
+    { "id": "response-time", "question": "How long does customer support take to reply?", "answer": "Answer text will be added here." },
+    { "id": "returned-to-sender", "question": "My parcel is being sent back to you. What happens next?", "answer": "Answer text will be added here." },
+    { "id": "multiple-orders", "question": "I placed more than one order. Can you combine them?", "answer": "Answer text will be added here." },
+    { "id": "damaged", "question": "My item arrived damaged. What should I do?", "answer": "Answer text will be added here." },
+    { "id": "return-in-store", "question": "Can I return an online order in a store?", "answer": "Answer text will be added here." },
+    { "id": "tracking-stuck", "question": "I have a tracking number, but the parcel has not moved. Why?", "answer": "Answer text will be added here." },
+    { "id": "collab-returns", "question": "Can I return collaboration items?", "answer": "Answer text will be added here." },
+    { "id": "restock", "question": "If an item is sold out, will it come back in stock?", "answer": "Answer text will be added here." },
+    { "id": "gift-price", "question": "My order is a gift. Is the price shown in the package?", "answer": "Answer text will be added here." },
+    { "id": "gift-cards", "question": "Do you offer gift receipts or gift cards?", "answer": "Answer text will be added here." },
+    { "id": "gift-exchange", "question": "I received an item from Streetnut as a gift. Can I return or exchange it?", "answer": "Answer text will be added here." },
+    { "id": "stickers", "question": "Can I get some free stickers?", "answer": "Answer text will be added here." }
+  ]
+}

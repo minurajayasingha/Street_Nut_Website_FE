@@ -1,0 +1,6 @@
+/* Legal text runs at the page line height, one line between blocks */
+.blocks {
+  --lh-prose: var(--page-lh);
+  --page-block-gap: var(--page-lh);
+  --prose-list-pad-y: 10px;
+}

@@ -16,9 +16,46 @@
   "secondary": [
     { "label": "Archive", "href": "/archive" },
     { "label": "Chapters", "href": "/chapters" },
-    { "label": "Support", "href": "/support" },
+    {
+      "label": "Support",
+      "href": "/support",
+      "children": [
+        { "label": "Chat", "action": "chat" },
+        { "label": "Shipping & Returns", "href": "/support/shipping-returns" },
+        { "label": "Size Guide", "href": "/support/size-guide" },
+        { "label": "Warranty", "href": "/support/warranty" },
+        { "label": "Accessibility", "href": "/support/accessibility" }
+      ]
+    },
     { "label": "Account", "href": "/account" },
     { "label": "Newsletter", "href": "/newsletter" },
     { "label": "Legal", "href": "/legal" }
+  ],
+  "contexts": [
+    {
+      "match": "/support",
+      "primary": [
+        { "label": "New Arrivals", "href": "/collections/new-arrivals" },
+        { "label": "Archive", "href": "/archive" },
+        { "label": "Chapters", "href": "/chapters" },
+        {
+          "label": "Support",
+          "href": "/support",
+          "expanded": true,
+          "children": [
+            { "label": "Chat", "action": "chat" },
+            { "label": "Shipping & Returns", "href": "/support/shipping-returns" },
+            { "label": "Size Guide", "href": "/support/size-guide" },
+            { "label": "Warranty", "href": "/support/warranty" },
+            { "label": "Accessibility", "href": "/support/accessibility" }
+          ]
+        }
+      ],
+      "secondary": [
+        { "label": "Account", "href": "/account" },
+        { "label": "Newsletter", "href": "/newsletter" },
+        { "label": "Legal", "href": "/legal" }
+      ]
+    }
   ]
 }

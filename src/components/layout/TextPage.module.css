@@ -1,0 +1,12 @@
+.page {
+  margin-bottom: var(--page-end-gap);
+}
+
+.title {
+  --page-title-gap: var(--page-title-gap-wide);
+}
+
+/* Default text pages use the 1.6em rte line height */
+.rte {
+  --lh-prose: var(--lh-rte);
+}

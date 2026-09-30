@@ -1,21 +1,15 @@
+/* Sits under the header so SEARCH, BAG and the MENU/CLOSE toggle stay visible */
 .panel {
   position: fixed;
-  inset: 0;
-  z-index: 100;
-  padding: var(--logo-offset);
-  padding-top: 80px;
+  top: var(--drawer-top);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 40;
+  padding: var(--drawer-pad-top) var(--drawer-gutter) var(--drawer-pad-bottom);
   background: var(--color-bg);
   overflow-y: auto;
   font-size: var(--fs-12);
-  line-height: var(--lh-12);
-  font-weight: var(--fw-medium);
-}
-
-.close {
-  position: absolute;
-  top: var(--header-actions-top);
-  right: 20px;
-  font-size: var(--fs-12);
-  line-height: var(--lh-12);
+  line-height: var(--lh-page-12);
   font-weight: var(--fw-medium);
 }

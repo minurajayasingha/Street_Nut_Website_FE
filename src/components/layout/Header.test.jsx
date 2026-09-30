@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
@@ -37,4 +37,122 @@ test('MENU opens the drawer and locks scroll; Escape closes it and restores scro
   await user.keyboard('{Escape}');
   expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   expect(document.body.style.overflow).toBe('');
+});
+
+test('the nav link for the current page is marked as current', () => {
+  render(
+    <MemoryRouter initialEntries={['/support']}>
+      <Header siteName="Streetnut" nav={nav} announcement="Free shipping" />
+    </MemoryRouter>
+  );
+  const [desktopLink] = screen.getAllByRole('link', { name: 'Support' });
+  expect(desktopLink).toHaveAttribute('aria-current', 'page');
+  expect(screen.getAllByRole('link', { name: 'New Arrivals' })[0]).not.toHaveAttribute('aria-current');
+});
+
+const region = { label: 'US / $', mobileLabel: 'USD / $' };
+
+test('shows the region row under the desktop nav', () => {
+  setup({ region });
+  expect(screen.getByRole('button', { name: 'US / $' })).toBeInTheDocument();
+});
+
+test('drawer shows the mobile region label', async () => {
+  setup({ region });
+  await userEvent.click(screen.getByRole('button', { name: /^menu$/i }));
+  expect(within(screen.getByRole('dialog')).getByRole('button', { name: 'USD / $' })).toBeInTheDocument();
+});
+
+test('the header button switches MENU to CLOSE and closes the drawer', async () => {
+  setup();
+  await userEvent.click(screen.getByRole('button', { name: /^menu$/i }));
+  expect(screen.queryByRole('button', { name: /^menu$/i })).not.toBeInTheDocument();
+  await userEvent.click(screen.getByRole('button', { name: /^close$/i }));
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /^menu$/i })).toBeInTheDocument();
+});
+
+test('the drawer has only one close button and keeps the header search and bag visible', async () => {
+  setup();
+  await userEvent.click(screen.getByRole('button', { name: /^menu$/i }));
+  expect(screen.getAllByRole('button', { name: /^close$/i })).toHaveLength(1);
+  expect(within(screen.getByRole('dialog')).queryByRole('button', { name: /close/i })).not.toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
+});
+
+const supportNav = {
+  primary: [{ label: 'Tees', href: '/collections/tees' }],
+  secondary: [
+    {
+      label: 'Support',
+      href: '/support',
+      children: [
+        { label: 'Chat', action: 'chat' },
+        { label: 'Size Guide', href: '/support/size-guide' },
+      ],
+    },
+    { label: 'Legal', href: '/legal' },
+  ],
+  contexts: [
+    {
+      match: '/support',
+      primary: [
+        { label: 'Archive', href: '/archive' },
+        {
+          label: 'Support',
+          href: '/support',
+          expanded: true,
+          children: [
+            { label: 'Chat', action: 'chat' },
+            { label: 'Size Guide', href: '/support/size-guide' },
+          ],
+        },
+      ],
+      secondary: [{ label: 'Legal', href: '/legal' }],
+    },
+  ],
+};
+const setupAt = (path) =>
+  render(
+    <MemoryRouter initialEntries={[path]}>
+      <Header siteName="Streetnut" nav={supportNav} announcement="x" />
+    </MemoryRouter>
+  );
+
+test('desktop nav shows the normal lists outside the support section', () => {
+  setupAt('/legal');
+  const main = screen.getByRole('navigation', { name: 'Main' });
+  expect(within(main).getByRole('link', { name: 'Tees' })).toBeInTheDocument();
+  expect(within(main).queryByRole('button', { name: 'Chat' })).not.toBeInTheDocument();
+});
+
+test('desktop nav swaps to the support context with its children inside the section', () => {
+  setupAt('/support/size-guide');
+  const main = screen.getByRole('navigation', { name: 'Main' });
+  expect(within(main).queryByRole('link', { name: 'Tees' })).not.toBeInTheDocument();
+  expect(within(main).getByRole('button', { name: 'Chat' })).toBeInTheDocument();
+  expect(within(main).getByRole('link', { name: 'Size Guide' })).toHaveAttribute('aria-current', 'page');
+  expect(within(main).getByRole('link', { name: 'Support' })).toHaveAttribute('href', '/support');
+});
+
+test('drawer expands the support submenu in place', async () => {
+  setupAt('/legal');
+  await userEvent.click(screen.getByRole('button', { name: /^menu$/i }));
+  const dialog = screen.getByRole('dialog');
+  const toggle = within(dialog).getByRole('button', { name: 'Support' });
+  expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  expect(within(dialog).queryByRole('link', { name: 'Size Guide' })).not.toBeInTheDocument();
+  await userEvent.click(toggle);
+  expect(toggle).toHaveAttribute('aria-expanded', 'true');
+  expect(within(dialog).getByRole('link', { name: 'Size Guide' })).toHaveAttribute('href', '/support/size-guide');
+  expect(within(dialog).getByRole('button', { name: 'Chat' })).toBeInTheDocument();
+  await userEvent.click(toggle);
+  expect(within(dialog).queryByRole('link', { name: 'Size Guide' })).not.toBeInTheDocument();
+});
+
+test('drawer parent with children is a toggle button, not a link', async () => {
+  setupAt('/legal');
+  await userEvent.click(screen.getByRole('button', { name: /^menu$/i }));
+  const dialog = screen.getByRole('dialog');
+  expect(within(dialog).queryByRole('link', { name: 'Support' })).not.toBeInTheDocument();
 });

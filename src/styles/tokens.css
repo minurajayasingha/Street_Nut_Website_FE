@@ -5,12 +5,16 @@
   --fs-12: 12px;
   --lh-10: 14px;
   --lh-12: 14px;
+  --lh-page-12: 16.8px;
+  --lh-rte-12: 19.2px;
 
   --fw-regular: 400;
   --fw-medium: 500;
+  --fw-bold: 700;
 
   --color-text: #000;
   --color-bg: #fff;
+  --color-error: #d60000;
 
   --logo-width: 100px;
   --logo-offset: 10px;
@@ -20,6 +24,60 @@
   --header-actions-gap: 20px;
   --fs-header: var(--fs-12);
   --lh-header: var(--lh-12);
+
+  /* Content pages (measured on reference /pages/legal and /pages/customer-support) */
+  --page-left: 20px;
+  --page-right: 20px;
+  --page-top: 91px;
+  --page-bottom: 80px;
+  --page-fs: var(--fs-12);
+  --page-lh: var(--lh-page-12);
+  --lh-rte: var(--lh-rte-12);
+  --page-title-gap: 8px;
+  --page-title-gap-wide: 16px;
+  --page-block-gap: 16px;
+  --page-section-gap: 32px;
+  --page-tablet-flush: 0px;
+  --accordion-pad-y: 8px;
+  --accordion-content-gap: 16px;
+  --accordion-content-lh: var(--page-lh);
+  --accordion-icon-gap: 5px;
+  --accordion-header-pr: 10px;
+  --accordion-content-pr: 20px;
+
+  /* Support FAQ */
+  --faq-title-gap: 8px;
+  --faq-icon-gap: 3px;
+  --faq-item-pad-y: 8px;
+  --faq-content-gap: 10px;
+  --faq-content-lh: var(--lh-page-12);
+
+  /* Policy pages (measured on reference /pages/shipping-returns) */
+  --lh-prose: var(--lh-page-12);
+  --lh-prose-sub: 16.5px;
+  --prose-list-pad-y: 10px;
+  --prose-list-indent: 30px;
+  --page-end-gap: 40px;
+
+  /* Size guide tables (measured on reference /pages/size-guide) */
+  --table-pad-y: 4px;
+  --table-pad-x: 1px;
+  --table-lh: var(--lh-12);
+  --table-label-min: 221px;
+  --table-label-pad-left: 1px;
+  --table-label-pad-right: 1px;
+  --table-cell-min: 78px;
+  --table-gap-bottom: 20px;
+  --table-peek: 25px;
+
+  /* Mobile menu drawer (measured on reference at 390px) */
+  --drawer-top: 80px;
+  --drawer-gutter: 22px;
+  --drawer-pad-top: 10px;
+  --drawer-pad-bottom: 80px;
+  --drawer-row-gap: 8px;
+  --drawer-separator-height: 11px;
+  --drawer-caret-gap: 5px;
 }
 
 /* Desktop breakpoint measured on reference: 64.0625rem = 1025px */
@@ -36,5 +94,27 @@
     --nav-left: 34px;
     --nav-top: 99px;
     --nav-pitch: 20px;
+
+    --page-left: 180px;
+    --page-right: 20vw;
+    --page-top: 80px;
+    --page-bottom: 0px;
+    --page-fs: var(--fs-10);
+    --page-lh: var(--lh-10);
+    --lh-rte: 16px;
+    --page-title-gap: 16px;
+    --accordion-pad-y: 4px;
+    --accordion-content-gap: 8px;
+    --accordion-header-pr: 5px;
+    --accordion-icon-gap: 3px;
+    --faq-content-lh: 16px;
+    --lh-prose: 16px;
+    --prose-list-pad-y: 16px;
+    --table-pad-x: 12px;
+    --table-lh: var(--lh-prose);
+    --table-label-pad-left: 0px;
+    --table-label-pad-right: 20px;
+    --table-cell-min: 0px;
+    --table-gap-bottom: 28px;
   }
 }

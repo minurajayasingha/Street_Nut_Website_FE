@@ -1,0 +1,40 @@
+.item {
+  padding: var(--accordion-pad-y) 0;
+}
+
+.header {
+  display: inline-block;
+  padding-right: var(--accordion-header-pr);
+  font-size: var(--page-fs);
+  line-height: var(--page-lh);
+  font-weight: var(--fw-medium);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.icon {
+  display: inline-block;
+  margin-left: var(--accordion-icon-gap);
+  vertical-align: middle;
+  transform: rotate(90deg);
+}
+
+.iconOpen {
+  transform: rotate(180deg);
+}
+
+.content {
+  padding-top: var(--accordion-content-gap);
+  padding-right: var(--accordion-content-pr);
+  font-size: var(--page-fs);
+  line-height: var(--accordion-content-lh);
+  font-weight: var(--fw-medium);
+}
+
+/* Header spans the full row on mobile, hugs its text on desktop */
+@media (max-width: 1024px) {
+  .header {
+    display: block;
+    width: 100%;
+  }
+}

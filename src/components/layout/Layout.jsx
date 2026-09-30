@@ -25,7 +25,12 @@ export default function Layout() {
 
   return (
     <>
-      <Header nav={nav} siteName={siteName} announcement={site?.announcement} />
+      <Header
+        nav={nav}
+        siteName={siteName}
+        announcement={site?.announcement}
+        region={site?.region}
+      />
       <main>
         <Outlet />
       </main>

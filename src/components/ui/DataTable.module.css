@@ -1,0 +1,50 @@
+.wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: var(--table-gap-bottom);
+  border-collapse: collapse;
+  font-weight: var(--fw-medium);
+}
+
+.label,
+.cell {
+  padding: var(--table-pad-y) var(--table-pad-x);
+  line-height: var(--table-lh);
+}
+
+.label {
+  min-width: var(--table-label-min);
+  padding-right: var(--table-label-pad-right);
+  padding-left: var(--table-label-pad-left);
+  font-weight: inherit;
+  text-align: left;
+}
+
+.cell {
+  min-width: var(--table-cell-min);
+  text-align: center;
+}
+
+.title {
+  line-height: var(--lh-prose-sub);
+}
+
+.title span {
+  text-decoration: underline;
+}
+
+/* Between 744px and 1024px the wrapper stops short of the edge */
+@media (min-width: 744px) and (max-width: 1024px) {
+  .wrapper {
+    width: calc(100% - var(--table-peek));
+  }
+}
+
+@media (min-width: 1025px) {
+  .table {
+    width: auto;
+  }
+}

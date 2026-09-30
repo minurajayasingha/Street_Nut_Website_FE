@@ -1,3 +1,5 @@
+import PlaceholderPage from '../components/ui/PlaceholderPage';
+
 export default function Product() {
-  return <h1>Product</h1>;
+  return <PlaceholderPage title="Product" />;
 }

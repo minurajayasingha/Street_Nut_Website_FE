@@ -1,3 +1,5 @@
+import PlaceholderPage from '../components/ui/PlaceholderPage';
+
 export default function Home() {
-  return <h1>Home</h1>;
+  return <PlaceholderPage title="Home" />;
 }

@@ -1,0 +1,90 @@
+{
+  "title": "Shipping & Returns",
+  "sections": [
+    {
+      "id": "shipping-handling",
+      "title": "Shipping & Handling",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Order processing**\nOrders placed on streetnut.com are processed Monday–Friday and shipped within 3–5 business days, excluding weekends and public holidays. Once your order has shipped you will receive an email with your tracking information.\n\n_Note: cancellation and address change requests for orders placed Friday–Sunday cannot be accepted._"
+        },
+        {
+          "type": "text",
+          "text": "**EU shipping**\nWe offer the following rates for deliveries within the EU:\nStandard (3–5 business days) – €6\nExpress (1–2 business days) – €12\n\nFree standard shipping on all EU orders over €150. Exclusions apply.\n*Delivery times start once your order has been processed and handed to the courier.\n\nExclusions apply for the Canary Islands, Ceuta, Melilla and P.O. boxes:\nStandard – €10\nExpress – €18"
+        },
+        {
+          "type": "text",
+          "text": "**International shipping**\nWe ship to selected countries outside the EU at the following rate:\nExpress – €25\n\nFor remote destinations:\nExpress – €32\n\nFree standard shipping is available on international orders over €250. Exclusions apply."
+        },
+        {
+          "type": "text",
+          "text": "If your courier or local customs office asks you for an extra payment, please contact [support@streetnut.com](mailto:support@streetnut.com) or use live chat."
+        },
+        {
+          "type": "text",
+          "text": "**International duties & taxes**\nInternational orders are subject to:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Our [Terms of Use](/legal) and privacy policy, shown at checkout.",
+            "The local tax and duty rules of the destination country."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Payment of duties at checkout covers the following:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "The fees shown at checkout include customs duties and taxes.",
+            "These duties and taxes are non-refundable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "return-guidelines",
+      "title": "Return Guidelines",
+      "blocks": [
+        { "type": "text", "text": "**Return policy**" },
+        {
+          "type": "list",
+          "items": [
+            "You have up to 14 days after receiving your order to return items bought on streetnut.com.",
+            "Orders must be returned by mail only.",
+            "Returned items must be new and unused, with the original tags still attached.",
+            "Underwear and fragrances cannot be returned for hygiene reasons.",
+            "Once your return is delivered, allow 3–5 business days for inspection.",
+            "After inspection, a refund to your original payment method will be processed within 2–3 business days.",
+            "Shipping charges are non-refundable.",
+            "We do not accept returns or exchanges for Streetnut products that were not bought on streetnut.com."
+          ]
+        },
+        { "type": "subheading", "text": "Visit our self-service return portal below:" },
+        {
+          "type": "list",
+          "items": [
+            "Returns portal [here](/support)",
+            "By using our returns portal, all return submissions are reviewed for approval.",
+            "Domestic and international returns are charged a flat rate when you use our pre-paid returns label."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "**Disclaimer**\nFrequent returns or unusual patterns will be flagged in our system. If our return policy is being abused, we reserve the right to cancel or refuse future orders. Please review our [Terms of Use](/legal).\nReturns that do not use the provided label will be refused. Any alterations to the label will not be accepted."
+        },
+        {
+          "type": "text",
+          "text": "**Exchanges**\nWe do not offer exchanges. Please return the product for a full refund and place a new order for the item you would like."
+        },
+        {
+          "type": "text",
+          "text": "**Special collaborations**\n_All sales are final_ for any purchases of limited edition or special collaboration products."
+        }
+      ]
+    }
+  ]
+}

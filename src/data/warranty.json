@@ -1,0 +1,21 @@
+{
+  "title": "Eyewear Warranty",
+  "blocks": [
+    {
+      "type": "text",
+      "text": "**Streetnut Eyewear One-Year Warranty Policy**\n\n**Coverage period:**\n1 year from the date of purchase, with proof of purchase. Streetnut offers a one-year limited warranty on its eyewear. The warranty applies only to the original buyer and cannot be transferred to anyone else. This policy applies to eyewear bought on or after 1 January 2026."
+    },
+    {
+      "type": "text",
+      "text": "**What does the warranty cover?**\nThis warranty covers defects in materials or workmanship on frames and lenses bought from streetnut.com or in our [stores](/chapters)."
+    },
+    {
+      "type": "text",
+      "text": "**What does this warranty not cover?**\nIssues caused by: (i) commercial use, (ii) normal wear and tear (including scratches), or (iii) misuse, accidents, neglect, alterations, improper repairs or improper storage. Any of these will void your warranty."
+    },
+    {
+      "type": "text",
+      "text": "**How do I start a warranty claim?**\nEmail [warranty@streetnut.com](mailto:warranty@streetnut.com) with a short description of the item, proof of purchase (your order confirmation or store receipt) and photos of the defect. Our team will reply within 5 business days."
+    }
+  ]
+}

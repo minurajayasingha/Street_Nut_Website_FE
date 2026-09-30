@@ -1,0 +1,26 @@
+.blocks {
+  line-height: var(--lh-prose);
+}
+
+.blocks p + p {
+  margin-top: var(--page-block-gap);
+}
+
+.blocks ul {
+  padding: var(--prose-list-pad-y) 0 var(--prose-list-pad-y) var(--prose-list-indent);
+  list-style: disc;
+}
+
+.blocks strong {
+  font-weight: var(--fw-bold);
+}
+
+.blocks a {
+  text-decoration: underline;
+}
+
+.subheading {
+  font-size: inherit;
+  line-height: var(--lh-prose-sub);
+  font-weight: inherit;
+}

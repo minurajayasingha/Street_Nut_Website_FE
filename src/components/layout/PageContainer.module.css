@@ -1,0 +1,22 @@
+.container {
+  padding: var(--page-top) var(--page-right) var(--page-bottom) var(--page-left);
+  font-size: var(--page-fs);
+  line-height: var(--page-lh);
+  font-weight: var(--fw-medium);
+}
+
+/* Some reference pages drop their side padding between 744px and 1024px */
+@media (min-width: 744px) and (max-width: 1024px) {
+  .flushTablet {
+    padding-right: var(--page-tablet-flush);
+    padding-left: var(--page-tablet-flush);
+  }
+}
+
+.title {
+  padding-bottom: var(--page-title-gap);
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  text-decoration: underline;
+}

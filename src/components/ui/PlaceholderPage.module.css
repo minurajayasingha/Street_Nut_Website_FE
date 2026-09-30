@@ -1,0 +1,16 @@
+.root {
+  display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
+  place-items: center;
+}
+
+.title {
+  font-size: var(--page-fs);
+  line-height: var(--page-lh);
+  font-weight: var(--fw-medium);
+}
+
+.title[data-tone='error'] {
+  color: var(--color-error);
+}

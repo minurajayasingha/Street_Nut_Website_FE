@@ -1,3 +1,5 @@
+import PlaceholderPage from '../components/ui/PlaceholderPage';
+
 export default function Collection() {
-  return <h1>Collection</h1>;
+  return <PlaceholderPage title="Collection" />;
 }
