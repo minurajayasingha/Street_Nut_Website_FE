@@ -51,7 +51,6 @@ test('not found heading uses the error tone', () => {
 
 test.each([
   ['/', /^home$/i],
-  ['/collections/tees', /^collection$/i],
   ['/products/some-product', /^product$/i],
 ])('%s is a centered placeholder without the error tone', (path, heading) => {
   renderAt(path);
@@ -95,4 +94,19 @@ test('size guide route renders its disclaimer and both tables inside layout', as
   expect(await screen.findByRole('heading', { level: 1, name: /size guide/i })).toBeInTheDocument();
   expect(screen.getByRole('table', { name: /international size conversions/i })).toBeInTheDocument();
   expect(screen.getByRole('table', { name: /body measurements/i })).toBeInTheDocument();
+});
+
+test('design system page is available in development, outside the site layout', async () => {
+  renderAt('/design-system');
+  // First load of the lazy chunk can be slow while other test files run in parallel
+  expect(
+    await screen.findByRole('heading', { level: 1, name: /design system/i }, { timeout: 8000 })
+  ).toBeInTheDocument();
+  expect(screen.queryByRole('banner')).not.toBeInTheDocument();
+}, 15000);
+
+test('collection route renders the product grid inside the layout', async () => {
+  renderAt('/collections/tees');
+  expect(screen.getByRole('main')).toBeInTheDocument();
+  expect((await screen.findAllByRole('article')).length).toBeGreaterThan(0);
 });

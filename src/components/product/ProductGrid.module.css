@@ -1,0 +1,24 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+  margin: 0;
+  padding: var(--grid-top) var(--grid-pad-right) 0 var(--grid-pad-left);
+  list-style: none;
+}
+
+/* Tablet: the grid runs edge to edge (measured: flush from 744px up to the desktop breakpoint) */
+@media (min-width: 744px) and (max-width: 1024px) {
+  .grid {
+    padding-right: var(--page-tablet-flush);
+    padding-left: var(--page-tablet-flush);
+  }
+}
+
+/* Four columns from 1201px (measured: two columns at 1200px, four at 1201px) */
+@media (min-width: 1201px) {
+  .grid {
+    grid-template-columns: repeat(var(--grid-cols-wide), minmax(0, 1fr));
+    column-gap: var(--grid-gap-x-wide);
+  }
+}

@@ -1,5 +1,19 @@
-import PlaceholderPage from '../components/ui/PlaceholderPage';
+import { useEffect, useState } from 'react';
+import ProductGrid from '../components/product/ProductGrid';
+import { getProducts } from '../services/productService';
 
 export default function Collection() {
-  return <PlaceholderPage title="Collection" />;
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    let active = true;
+    getProducts().then((list) => {
+      if (active) setProducts(list);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  return <ProductGrid products={products} />;
 }

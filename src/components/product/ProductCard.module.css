@@ -1,0 +1,126 @@
+.card {
+  --sizes-opacity: 0;
+  position: relative;
+  font-size: var(--card-fs);
+  line-height: var(--card-lh);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* Focus reveals the size row too, so keyboard users can reach the size links */
+.card:hover,
+.card:focus-within {
+  --sizes-opacity: 1;
+}
+
+.imageLink {
+  display: block;
+}
+
+.soldOut .imageLink {
+  opacity: var(--card-soldout-opacity);
+}
+
+.track {
+  position: relative;
+  display: block;
+}
+
+.slide {
+  display: block;
+  aspect-ratio: var(--card-image-ratio);
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Desktop: second image sits on top and swaps in instantly on hover */
+.slideAlt {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.imageLink:hover .slideAlt {
+  opacity: 1;
+}
+
+.info {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--card-note-pad);
+  margin-top: var(--card-info-gap);
+}
+
+.info > :not(.title):not(.note) {
+  grid-column: 1 / -1;
+}
+
+.title {
+  grid-column: 1;
+  grid-row: 1;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.price {
+  margin: 0;
+}
+
+/* Badge / colour count: beside the title on desktop, under the price on mobile */
+.note {
+  grid-column: 2;
+  grid-row: 1;
+  position: static;
+  margin: 0;
+  padding-left: 0;
+  color: var(--color-muted);
+}
+
+.spacer {
+  height: var(--card-spacer-height);
+}
+
+/* Mobile: images become a swipeable scroll-snap slider, no size row, note under the price */
+@media (max-width: 1024px) {
+  .track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+
+  .slideAlt {
+    position: static;
+    opacity: 1;
+  }
+
+  .info {
+    display: block;
+  }
+
+  .note {
+    margin-top: var(--card-note-gap);
+    padding-left: 0;
+  }
+
+  .spacer {
+    display: none;
+  }
+}

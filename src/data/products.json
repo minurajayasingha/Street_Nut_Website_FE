@@ -1,5 +1,57 @@
 [
-  { "id": "p1", "slug": "brush-logo-tee", "name": "Brush Logo Tee", "price": 45, "currency": "EUR", "image": "/products/placeholder.png" },
-  { "id": "p2", "slug": "street-hoodie", "name": "Street Hoodie", "price": 95, "currency": "EUR", "image": "/products/placeholder.png" },
-  { "id": "p3", "slug": "nut-cap", "name": "Nut Cap", "price": 35, "currency": "EUR", "image": "/products/placeholder.png" }
+  {
+    "id": "p1",
+    "slug": "brush-logo-tee",
+    "name": "Brush Logo Tee",
+    "price": 45,
+    "currency": "EUR",
+    "images": ["/products/placeholder.svg", "/products/placeholder-alt.svg"],
+    "sizes": [
+      { "label": "XS", "available": false },
+      { "label": "S", "available": true },
+      { "label": "M", "available": true },
+      { "label": "L", "available": true },
+      { "label": "XL", "available": true },
+      { "label": "XXL", "available": false }
+    ],
+    "colors": 3
+  },
+  {
+    "id": "p2",
+    "slug": "street-hoodie",
+    "name": "Street Hoodie",
+    "price": 95,
+    "currency": "EUR",
+    "images": ["/products/placeholder.svg", "/products/placeholder-alt.svg"],
+    "sizes": [
+      { "label": "S", "available": true },
+      { "label": "M", "available": true },
+      { "label": "L", "available": false },
+      { "label": "XL", "available": true }
+    ],
+    "badge": "New"
+  },
+  {
+    "id": "p3",
+    "slug": "nut-cap",
+    "name": "Nut Cap",
+    "price": 35,
+    "currency": "EUR",
+    "images": ["/products/placeholder.svg"],
+    "sizes": [{ "label": "One size", "available": true }]
+  },
+  {
+    "id": "p4",
+    "slug": "varsity-jacket",
+    "name": "Varsity Jacket",
+    "price": 120,
+    "currency": "EUR",
+    "images": ["/products/placeholder.svg", "/products/placeholder-alt.svg"],
+    "sizes": [
+      { "label": "S", "available": false },
+      { "label": "M", "available": false },
+      { "label": "L", "available": false }
+    ],
+    "soldOut": true
+  }
 ]

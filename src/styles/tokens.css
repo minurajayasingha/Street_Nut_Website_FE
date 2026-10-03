@@ -15,6 +15,7 @@
   --color-text: #000;
   --color-bg: #fff;
   --color-error: #d60000;
+  --color-muted: #757575;
 
   --logo-width: 100px;
   --logo-offset: 10px;
@@ -78,6 +79,30 @@
   --drawer-row-gap: 8px;
   --drawer-separator-height: 11px;
   --drawer-caret-gap: 5px;
+
+  /* Product card (measured on reference /collections/tees and /collections/new-arrivals) */
+  --card-fs: var(--fs-12);
+  --card-lh: 1.4;
+  --card-image-ratio: 4 / 5;
+  --card-info-gap: 10px;
+  --card-sizes-height: 14px;
+  --card-size-gap: 15px;
+  --card-spacer-height: 25px;
+  --card-soldout-opacity: 0.5;
+  --card-fade: 0.25s;
+  --card-fade-ease: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --card-note-gap: 4px;
+  --card-note-pad: 10px;
+
+  /* Product grid (measured on reference collection pages) */
+  --grid-cols: 2;
+  --grid-cols-wide: 4;
+  --grid-gap-x: 5px;
+  --grid-gap-x-wide: 5px;
+  --grid-gap-y: 40px;
+  --grid-pad-left: 20px;
+  --grid-pad-right: 20px;
+  --grid-top: 67px;
 }
 
 /* Desktop breakpoint measured on reference: 64.0625rem = 1025px */
@@ -116,5 +141,12 @@
     --table-label-pad-right: 20px;
     --table-cell-min: 0px;
     --table-gap-bottom: 28px;
+
+    --card-fs: var(--fs-10);
+    --grid-gap-x: 20px;
+    --grid-gap-y: 30px;
+    --grid-pad-left: 180px;
+    --grid-pad-right: 4vw;
+    --grid-top: 54px;
   }
 }

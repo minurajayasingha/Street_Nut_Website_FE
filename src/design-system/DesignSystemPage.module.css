@@ -1,0 +1,279 @@
+/* Developer-only page chrome. Uses neutral sizes of its own so it never affects the site tokens;
+   the specimens inside it use the real site tokens. */
+.root {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #111;
+  background: #fff;
+}
+
+.root code,
+.code {
+  font-family: ui-monospace, 'Cascadia Code', Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 20px 16px;
+  border-right: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+
+.brand {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.navGroup {
+  margin: 16px 0 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.navLink {
+  display: block;
+  padding: 3px 0;
+  color: #111;
+}
+
+.navLink:hover {
+  text-decoration: underline;
+}
+
+.main {
+  max-width: 1100px;
+  padding: 32px 40px 120px;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.groupTitle {
+  margin: 56px 0 8px;
+  padding-top: 16px;
+  font-size: 22px;
+  border-top: 2px solid #111;
+}
+
+.sectionTitle {
+  margin: 32px 0 12px;
+  font-size: 18px;
+}
+
+.subTitle {
+  margin: 24px 0 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+.muted {
+  color: #666;
+}
+
+.entry {
+  margin: 32px 0;
+  padding: 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+}
+
+.entryTitle {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.demo {
+  margin: 16px 0;
+  padding: 20px;
+  overflow-x: auto;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.code {
+  margin: 12px 0 0;
+  padding: 12px;
+  overflow-x: auto;
+  background: #f4f4f4;
+  border-radius: 4px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.demoButton {
+  padding: 6px 12px;
+  border: 1px solid #111;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 140px;
+}
+
+.swatchChip {
+  height: 56px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.specimen {
+  margin: 8px 0;
+}
+
+.specimenList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.specimenRow {
+  display: grid;
+  grid-template-columns: 160px 70px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+}
+
+.tokenGroup {
+  margin-bottom: 8px;
+}
+
+.tokenTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.tokenTable th,
+.tokenTable td {
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+}
+
+.tokenTable th {
+  font-weight: 700;
+  color: #444;
+}
+
+.bar {
+  display: block;
+  max-width: 100%;
+  height: 8px;
+  background: #111;
+}
+
+.frameDemo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.frameBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.frameLabel {
+  color: #666;
+  font-size: 12px;
+}
+
+.frameWidths {
+  display: flex;
+  gap: 4px;
+}
+
+.widthButton,
+.widthActive {
+  padding: 4px 10px;
+  font: inherit;
+  font-size: 12px;
+  border: 1px solid #111;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.widthActive {
+  color: #fff;
+  background: #111;
+}
+
+.frameScroller {
+  overflow-x: auto;
+}
+
+.frame {
+  display: block;
+  max-width: none;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+@media (max-width: 800px) {
+  .root {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sidebar {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .main {
+    padding: 24px 16px 80px;
+  }
+
+  .specimenRow {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+}

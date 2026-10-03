@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
@@ -13,9 +14,22 @@ import Warranty from './pages/support/Warranty';
 import Accessibility from './pages/support/Accessibility';
 import Legal from './pages/legal/Legal';
 
+// Developer-only design system page: lazy and dev-gated so it never ships in the production bundle
+const DesignSystemPage = import.meta.env.DEV ? lazy(() => import('./design-system/DesignSystemPage')) : null;
+
 export default function App() {
   return (
     <Routes>
+      {DesignSystemPage && (
+        <Route
+          path="design-system"
+          element={
+            <Suspense fallback={null}>
+              <DesignSystemPage />
+            </Suspense>
+          }
+        />
+      )}
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="collections/:handle" element={<Collection />} />

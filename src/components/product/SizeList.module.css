@@ -1,0 +1,36 @@
+/* A parent card sets --sizes-opacity to hide the row until hover or focus; standalone it is visible */
+.row {
+  position: relative;
+  height: var(--card-sizes-height);
+  margin-top: var(--card-info-gap);
+  opacity: var(--sizes-opacity, 1);
+  transition: opacity var(--card-fade) var(--card-fade-ease);
+}
+
+.list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  gap: var(--card-size-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.size {
+  color: var(--color-text);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.unavailable {
+  color: var(--color-muted);
+}
+
+/* No size row on mobile; the card slides images instead */
+@media (max-width: 1024px) {
+  .row {
+    display: none;
+  }
+}

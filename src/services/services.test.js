@@ -117,3 +117,23 @@ test('size guide has a disclaimer and two equal-width tables', async () => {
   });
   expect(page.blocks[0].type).toBe('text');
 });
+
+test('products expose images, sizes and the card state flags', async () => {
+  const products = await getProducts();
+  expect(products.map((p) => p.slug)).toEqual([
+    'brush-logo-tee',
+    'street-hoodie',
+    'nut-cap',
+    'varsity-jacket',
+  ]);
+  products.forEach((p) => {
+    expect(p.images.length).toBeGreaterThan(0);
+    expect(Array.isArray(p.sizes)).toBe(true);
+    p.sizes.forEach((s) => {
+      expect(s.label).toBeTruthy();
+      expect(typeof s.available).toBe('boolean');
+    });
+  });
+  expect(products.find((p) => p.slug === 'varsity-jacket').soldOut).toBe(true);
+  expect(products.find((p) => p.slug === 'street-hoodie').badge).toBe('New');
+});

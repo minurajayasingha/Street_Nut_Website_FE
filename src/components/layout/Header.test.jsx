@@ -50,6 +50,15 @@ test('the nav link for the current page is marked as current', () => {
   expect(screen.getAllByRole('link', { name: 'New Arrivals' })[0]).not.toHaveAttribute('aria-current');
 });
 
+test('hiding the announcement leaves the nav, search and bag in place', async () => {
+  setup();
+  await userEvent.setup().click(screen.getByRole('button', { name: /^hide$/i }));
+  expect(screen.queryByRole('region', { name: /announcement/i })).not.toBeInTheDocument();
+  expect(screen.getAllByRole('link', { name: 'New Arrivals' }).length).toBeGreaterThan(0);
+  expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /bag/i })).toBeInTheDocument();
+});
+
 const region = { label: 'US / $', mobileLabel: 'USD / $' };
 
 test('shows the region row under the desktop nav', () => {
