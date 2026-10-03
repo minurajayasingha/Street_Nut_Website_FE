@@ -1,6 +1,7 @@
 import { getSiteInfo } from './siteService';
 import { getNavigation } from './navigationService';
 import { getProducts, getProductBySlug } from './productService';
+import stock from '../data/stock.json';
 import { getLegalPages, getSupportPage, getShippingReturns, getWarranty, getAccessibility, getSizeGuide } from './pageService';
 
 test('site info has name and announcement', async () => {
@@ -118,22 +119,69 @@ test('size guide has a disclaimer and two equal-width tables', async () => {
   expect(page.blocks[0].type).toBe('text');
 });
 
-test('products expose images, sizes and the card state flags', async () => {
-  const products = await getProducts();
-  expect(products.map((p) => p.slug)).toEqual([
-    'brush-logo-tee',
-    'street-hoodie',
-    'nut-cap',
-    'varsity-jacket',
-  ]);
-  products.forEach((p) => {
-    expect(p.images.length).toBeGreaterThan(0);
-    expect(Array.isArray(p.sizes)).toBe(true);
-    p.sizes.forEach((s) => {
-      expect(s.label).toBeTruthy();
-      expect(typeof s.available).toBe('boolean');
-    });
+const TEE_SLUGS = [
+  'fresh-foils-tee-black',
+  'fresh-foils-tee-red',
+  'fresh-foils-tee-rock',
+  'fresh-foils-tee-white',
+  'high-rollers-tee-black',
+  'high-rollers-tee-rock',
+  'high-rollers-tee-white',
+  'high-rollers-tee-yellow',
+];
+
+test('the tees collection has the 8 colour products linked by family', async () => {
+  const tees = await getProducts({ collection: 'tees' });
+  expect(tees.map((p) => p.slug)).toEqual(TEE_SLUGS);
+  expect([...new Set(tees.map((p) => p.family))]).toEqual(['fresh-foils-tee', 'high-rollers-tee']);
+  tees.forEach((p) => {
+    expect(p.name).toMatch(/^(Fresh Foils|High Rollers) Tee$/);
+    expect(p.color).toBeTruthy();
+    expect(p.images).toHaveLength(2);
+    expect(p.images.every((src) => src.startsWith('/products/'))).toBe(true);
+    expect(p.sizes.map((s) => s.label)).toEqual(['XS', 'S', 'M', 'L', 'XL', 'XXL']);
   });
-  expect(products.find((p) => p.slug === 'varsity-jacket').soldOut).toBe(true);
-  expect(products.find((p) => p.slug === 'street-hoodie').badge).toBe('New');
+});
+
+test('stock quantities decide which sizes are available', async () => {
+  const black = await getProductBySlug('fresh-foils-tee-black');
+  expect(black.sizes.map((s) => [s.label, s.available])).toEqual([
+    ['XS', false],
+    ['S', true],
+    ['M', true],
+    ['L', true],
+    ['XL', true],
+    ['XXL', false],
+  ]);
+});
+
+test('a colour with no stock in any size has every size unavailable', async () => {
+  const rock = await getProductBySlug('high-rollers-tee-rock');
+  expect(rock.sizes.every((s) => !s.available)).toBe(true);
+});
+
+test('every tee has a stock entry and every stock entry belongs to a product', async () => {
+  TEE_SLUGS.forEach((slug) => expect(stock[slug]).toBeDefined());
+  for (const slug of Object.keys(stock)) {
+    expect(await getProductBySlug(slug)).not.toBeNull();
+    Object.entries(stock[slug]).forEach(([label, qty]) => {
+      expect(['XS', 'S', 'M', 'L', 'XL', 'XXL']).toContain(label);
+      expect(Number.isInteger(qty) && qty >= 0).toBe(true);
+    });
+  }
+});
+
+test('the demo collection keeps one product per card state', async () => {
+  const demo = await getProducts({ collection: 'demo' });
+  expect(demo.map((p) => p.slug)).toEqual(['brush-logo-tee', 'street-hoodie', 'nut-cap', 'varsity-jacket']);
+  expect(demo.find((p) => p.slug === 'varsity-jacket').soldOut).toBe(true);
+  expect(demo.find((p) => p.slug === 'street-hoodie').badge).toBe('New');
+  expect(demo.find((p) => p.slug === 'nut-cap').sizes).toEqual([{ label: 'One size', available: true }]);
+});
+
+test('collection filter: no argument and "all" return everything, an unknown handle returns nothing', async () => {
+  const everything = await getProducts();
+  expect(everything).toHaveLength(12);
+  expect(await getProducts({ collection: 'all' })).toEqual(everything);
+  expect(await getProducts({ collection: 'knits' })).toEqual([]);
 });

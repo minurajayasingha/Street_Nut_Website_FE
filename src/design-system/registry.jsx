@@ -209,8 +209,8 @@ export const registry = [
     props: [
       {
         name: 'product',
-        type: '{ slug, name, price, currency, images?, image?, sizes?, soldOut?, badge?, colors? }',
-        description: 'From productService. State is derived by utils/productState: soldOut flag or every size unavailable is sold out; no sizes or a single "One size" is one-size.',
+        type: '{ slug, name, price, currency, family?, color?, collections?, images?, image?, sizes?, soldOut?, badge?, colors? }',
+        description: 'From productService. State is derived by utils/productState: soldOut flag or every size unavailable is sold out; no sizes or a single "One size" is one-size. A product with a colour names it in the link, image alt and size-link labels (not visibly).',
       },
     ],
     usage: `<ProductCard product={product} />`,

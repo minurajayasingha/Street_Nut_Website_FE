@@ -15,7 +15,8 @@ function getNote(product) {
 }
 
 export default function ProductCard({ product }) {
-  const { slug, name, price, currency } = product;
+  const { slug, name, price, currency, color } = product;
+  const label = color ? `${color} ${name}` : name;
   const state = getProductState(product);
   const soldOut = state === 'soldOut';
   const [featured, second] = getImages(product);
@@ -31,7 +32,7 @@ export default function ProductCard({ product }) {
       <Link to={href} className={styles.imageLink} aria-hidden="true" tabIndex={-1}>
         <span className={styles.track} tabIndex={-1}>
           <span className={styles.slide}>
-            {featured && <img src={featured} alt={name} loading="lazy" />}
+            {featured && <img src={featured} alt={label} loading="lazy" />}
           </span>
           {second && (
             <span className={`${styles.slide} ${styles.slideAlt}`}>
@@ -41,7 +42,7 @@ export default function ProductCard({ product }) {
         </span>
       </Link>
       <div className={styles.info}>
-        <Link to={href} className={styles.title}>
+        <Link to={href} className={styles.title} aria-label={color ? label : undefined}>
           {name}
         </Link>
         {priceText && <p className={styles.price}>{priceText}</p>}
@@ -49,7 +50,7 @@ export default function ProductCard({ product }) {
         {soldOut ? (
           <div className={styles.spacer} aria-hidden="true" />
         ) : (
-          <SizeList slug={slug} name={name} sizes={state === 'oneSize' ? [] : product.sizes} />
+          <SizeList slug={slug} name={label} sizes={state === 'oneSize' ? [] : product.sizes} />
         )}
       </div>
     </article>

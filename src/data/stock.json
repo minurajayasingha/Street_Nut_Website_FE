@@ -1,0 +1,10 @@
+{
+  "fresh-foils-tee-black": { "XS": 0, "S": 4, "M": 10, "L": 6, "XL": 2, "XXL": 0 },
+  "fresh-foils-tee-red": { "XS": 3, "S": 5, "M": 0, "L": 0, "XL": 1, "XXL": 0 },
+  "fresh-foils-tee-rock": { "XS": 0, "S": 0, "M": 7, "L": 9, "XL": 5, "XXL": 2 },
+  "fresh-foils-tee-white": { "XS": 2, "S": 8, "M": 12, "L": 10, "XL": 6, "XXL": 3 },
+  "high-rollers-tee-black": { "XS": 0, "S": 2, "M": 5, "L": 4, "XL": 0, "XXL": 0 },
+  "high-rollers-tee-rock": { "XS": 0, "S": 0, "M": 0, "L": 0, "XL": 0, "XXL": 0 },
+  "high-rollers-tee-white": { "XS": 1, "S": 6, "M": 8, "L": 0, "XL": 3, "XXL": 1 },
+  "high-rollers-tee-yellow": { "XS": 0, "S": 3, "M": 4, "L": 2, "XL": 1, "XXL": 0 }
+}

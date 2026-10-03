@@ -1,18 +1,170 @@
 [
   {
+    "id": "fresh-foils-tee-black",
+    "slug": "fresh-foils-tee-black",
+    "family": "fresh-foils-tee",
+    "name": "Fresh Foils Tee",
+    "color": "Black",
+    "price": 45,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-BLACK/1.webp",
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-BLACK/2.webp"
+    ]
+  },
+  {
+    "id": "fresh-foils-tee-red",
+    "slug": "fresh-foils-tee-red",
+    "family": "fresh-foils-tee",
+    "name": "Fresh Foils Tee",
+    "color": "Red",
+    "price": 45,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-RED/1.webp",
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-RED/2.webp"
+    ]
+  },
+  {
+    "id": "fresh-foils-tee-rock",
+    "slug": "fresh-foils-tee-rock",
+    "family": "fresh-foils-tee",
+    "name": "Fresh Foils Tee",
+    "color": "Rock",
+    "price": 45,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-ROCK/1.webp",
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-ROCK/2.webp"
+    ]
+  },
+  {
+    "id": "fresh-foils-tee-white",
+    "slug": "fresh-foils-tee-white",
+    "family": "fresh-foils-tee",
+    "name": "Fresh Foils Tee",
+    "color": "White",
+    "price": 45,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-WHITE/1.jpg",
+      "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-WHITE/2.webp"
+    ]
+  },
+  {
+    "id": "high-rollers-tee-black",
+    "slug": "high-rollers-tee-black",
+    "family": "high-rollers-tee",
+    "name": "High Rollers Tee",
+    "color": "Black",
+    "price": 50,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-BLACK/1.webp",
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-BLACK/2.webp"
+    ]
+  },
+  {
+    "id": "high-rollers-tee-rock",
+    "slug": "high-rollers-tee-rock",
+    "family": "high-rollers-tee",
+    "name": "High Rollers Tee",
+    "color": "Rock",
+    "price": 50,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-ROCK/1.webp",
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-ROCK/2.webp"
+    ]
+  },
+  {
+    "id": "high-rollers-tee-white",
+    "slug": "high-rollers-tee-white",
+    "family": "high-rollers-tee",
+    "name": "High Rollers Tee",
+    "color": "White",
+    "price": 50,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-WHITE/1.webp",
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-WHITE/2.webp"
+    ]
+  },
+  {
+    "id": "high-rollers-tee-yellow",
+    "slug": "high-rollers-tee-yellow",
+    "family": "high-rollers-tee",
+    "name": "High Rollers Tee",
+    "color": "Yellow",
+    "price": 50,
+    "currency": "EUR",
+    "collections": [
+      "tees"
+    ],
+    "images": [
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-YELLOW/1.webp",
+      "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-YELLOW/2.webp"
+    ]
+  },
+  {
     "id": "p1",
     "slug": "brush-logo-tee",
     "name": "Brush Logo Tee",
     "price": 45,
     "currency": "EUR",
-    "images": ["/products/placeholder.svg", "/products/placeholder-alt.svg"],
+    "collections": [
+      "demo"
+    ],
+    "images": [
+      "/products/placeholder.svg",
+      "/products/placeholder-alt.svg"
+    ],
     "sizes": [
-      { "label": "XS", "available": false },
-      { "label": "S", "available": true },
-      { "label": "M", "available": true },
-      { "label": "L", "available": true },
-      { "label": "XL", "available": true },
-      { "label": "XXL", "available": false }
+      {
+        "label": "XS",
+        "available": false
+      },
+      {
+        "label": "S",
+        "available": true
+      },
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": true
+      },
+      {
+        "label": "XL",
+        "available": true
+      },
+      {
+        "label": "XXL",
+        "available": false
+      }
     ],
     "colors": 3
   },
@@ -22,12 +174,30 @@
     "name": "Street Hoodie",
     "price": 95,
     "currency": "EUR",
-    "images": ["/products/placeholder.svg", "/products/placeholder-alt.svg"],
+    "collections": [
+      "demo"
+    ],
+    "images": [
+      "/products/placeholder.svg",
+      "/products/placeholder-alt.svg"
+    ],
     "sizes": [
-      { "label": "S", "available": true },
-      { "label": "M", "available": true },
-      { "label": "L", "available": false },
-      { "label": "XL", "available": true }
+      {
+        "label": "S",
+        "available": true
+      },
+      {
+        "label": "M",
+        "available": true
+      },
+      {
+        "label": "L",
+        "available": false
+      },
+      {
+        "label": "XL",
+        "available": true
+      }
     ],
     "badge": "New"
   },
@@ -37,8 +207,18 @@
     "name": "Nut Cap",
     "price": 35,
     "currency": "EUR",
-    "images": ["/products/placeholder.svg"],
-    "sizes": [{ "label": "One size", "available": true }]
+    "collections": [
+      "demo"
+    ],
+    "images": [
+      "/products/placeholder.svg"
+    ],
+    "sizes": [
+      {
+        "label": "One size",
+        "available": true
+      }
+    ]
   },
   {
     "id": "p4",
@@ -46,11 +226,26 @@
     "name": "Varsity Jacket",
     "price": 120,
     "currency": "EUR",
-    "images": ["/products/placeholder.svg", "/products/placeholder-alt.svg"],
+    "collections": [
+      "demo"
+    ],
+    "images": [
+      "/products/placeholder.svg",
+      "/products/placeholder-alt.svg"
+    ],
     "sizes": [
-      { "label": "S", "available": false },
-      { "label": "M", "available": false },
-      { "label": "L", "available": false }
+      {
+        "label": "S",
+        "available": false
+      },
+      {
+        "label": "M",
+        "available": false
+      },
+      {
+        "label": "L",
+        "available": false
+      }
     ],
     "soldOut": true
   }

@@ -16,9 +16,6 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Local tooling & planning notes
-.claude/
-CLAUDE.md
-docs/superpowers/
-.playwright-mcp/
-.superpowers/
+# Local-only test photos (not ours): never commit or ship
+public/products/FRESH-FOILS-TEE/
+public/products/HIGH-ROLLERS-TEE/

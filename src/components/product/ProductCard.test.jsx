@@ -122,3 +122,25 @@ test('a null currency renders the price in the default currency', () => {
   setup({ currency: null, price: 45 });
   expect(screen.getByText('$45')).toBeInTheDocument();
 });
+
+test('a coloured product names its colour for assistive tech and alt text, not visibly', () => {
+  const { container } = setup({ color: 'Black' });
+  const link = screen.getByRole('link', { name: 'Black Brush Logo Tee' });
+  expect(link).toHaveTextContent('Brush Logo Tee');
+  expect(link).not.toHaveTextContent('Black');
+  expect(container.querySelector('img')).toHaveAttribute('alt', 'Black Brush Logo Tee');
+  expect(
+    screen.getByRole('link', { name: 'View Black Brush Logo Tee, size S' })
+  ).toBeInTheDocument();
+});
+
+test('two colours of the same product have distinguishable links', () => {
+  render(
+    <MemoryRouter>
+      <ProductCard product={{ ...base, slug: 'tee-black', color: 'Black' }} />
+      <ProductCard product={{ ...base, slug: 'tee-red', color: 'Red' }} />
+    </MemoryRouter>
+  );
+  expect(screen.getByRole('link', { name: 'Black Brush Logo Tee' })).toHaveAttribute('href', '/products/tee-black');
+  expect(screen.getByRole('link', { name: 'Red Brush Logo Tee' })).toHaveAttribute('href', '/products/tee-red');
+});

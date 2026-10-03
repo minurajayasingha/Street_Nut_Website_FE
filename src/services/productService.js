@@ -1,5 +1,17 @@
 import products from '../data/products.json';
+import stock from '../data/stock.json';
+import { sizesFromStock } from '../utils/sizesFromStock';
 
-export const getProducts = async () => products;
-export const getProductBySlug = async (slug) =>
-  products.find((p) => p.slug === slug) ?? null;
+// Products with a stock entry get their sizes from it; the rest keep the sizes written in products.json.
+const withSizes = (product) =>
+  stock[product.slug] ? { ...product, sizes: sizesFromStock(stock[product.slug]) } : product;
+
+export const getProducts = async ({ collection } = {}) =>
+  products
+    .filter((p) => !collection || collection === 'all' || p.collections?.includes(collection))
+    .map(withSizes);
+
+export const getProductBySlug = async (slug) => {
+  const product = products.find((p) => p.slug === slug);
+  return product ? withSizes(product) : null;
+};
