@@ -274,7 +274,9 @@
     --product-info-max: 325px;
     --product-block-gap: 16px;
 
-    --hero-width: calc(40vw - 8px);
+    /* Desktop hero: the client's video box (about 455x501 at 1352 wide), smaller than the reference's photo on purpose */
+    --hero-width: 33.7vw;
+    --hero-ratio: 10 / 11;
 
     --bag-width: 40vw;
     --bag-fs: var(--fs-10);

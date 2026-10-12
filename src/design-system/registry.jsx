@@ -501,7 +501,7 @@ export const registry = [
     name: 'HeroMedia',
     source: 'components/home/HeroMedia.jsx',
     description:
-      'Home hero. A centred muted, looping, autoplaying inline video. Frame ratio 0.663, centred in the viewport (the page grows when the frame is taller). Width is calc(40vw - 8px) from 1025px and calc(95vw - 19px) below, as measured on the reference. Falls back to the poster image, or an empty black frame, when there is no videoSrc. Swap the file at public/videos/hero.mp4 (or change home.json) to change the video.',
+      'Home hero. A centred muted, looping, autoplaying inline video. Centred in the viewport (the page grows when the frame is taller). Mobile (below 1025px): width calc(95vw - 19px), ratio 0.663, as measured on the reference. Desktop (1025px and up): width 33.7vw, ratio 10 / 11, a smaller box chosen for the client's video rather than the reference's size. Falls back to the poster image, or an empty black frame, when there is no videoSrc. Swap the file at public/videos/hero.mp4 (or change home.json) to change the video.',
     props: [
       { name: 'videoSrc', type: 'string', description: 'Video URL (mp4). Optional.' },
       { name: 'poster', type: 'string', description: 'Image shown before the video plays, or alone when there is no video. Optional.' },
