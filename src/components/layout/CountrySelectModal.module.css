@@ -1,0 +1,113 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-country);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--country-edge);
+  background: var(--country-overlay);
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: var(--country-width);
+  padding: var(--country-pad);
+  background: var(--color-bg);
+  font-size: var(--country-fs);
+  line-height: var(--country-lh);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+}
+
+.close {
+  position: absolute;
+  top: var(--country-close-offset);
+  right: var(--country-close-offset);
+  width: var(--country-close-size);
+  padding: var(--country-close-pad);
+  line-height: 0;
+}
+
+.form {
+  display: block;
+}
+
+.title {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: var(--fw-medium);
+}
+
+.label {
+  display: block;
+  margin-top: var(--country-gap);
+  color: var(--color-muted);
+}
+
+.selectWrap {
+  position: relative;
+  margin-top: var(--country-gap);
+}
+
+.select {
+  display: block;
+  width: 100%;
+  height: var(--country-field-height);
+  padding: var(--country-select-pad);
+  padding-right: var(--country-select-pad-right);
+  border: 1px solid var(--color-muted);
+  border-radius: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+  text-transform: uppercase;
+  appearance: none;
+  outline: none;
+}
+
+/* Square black border instead of the browser's rounded focus ring, as on the reference */
+.select:focus,
+.select:focus-visible {
+  border-color: var(--color-text);
+  outline: none;
+}
+
+.caret {
+  position: absolute;
+  top: 50%;
+  right: var(--country-select-pad);
+  transform: translateY(-50%) rotate(180deg);
+  pointer-events: none;
+}
+
+.save,
+.close {
+  border-radius: 0;
+}
+
+.save:focus-visible,
+.close:focus-visible {
+  outline: 1px solid var(--color-text);
+  outline-offset: 0;
+}
+
+.save {
+  display: block;
+  width: 100%;
+  height: var(--country-save-height);
+  margin-top: var(--country-save-gap);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font: inherit;
+  text-transform: uppercase;
+}
+
+/* The reference hides the X below the desktop breakpoint */
+@media (max-width: 1024px) {
+  .close {
+    display: none;
+  }
+}

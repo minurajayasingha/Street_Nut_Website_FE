@@ -27,9 +27,11 @@
   appearance: none;
 }
 
+/* The placeholder is smaller than the typed text on mobile (12px against 16px, measured) */
 .input::placeholder {
   color: var(--color-text);
   opacity: 1;
+  font-size: var(--search-placeholder-fs);
 }
 
 .input::-webkit-search-cancel-button,

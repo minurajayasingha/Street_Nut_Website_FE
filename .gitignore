@@ -17,5 +17,5 @@ Thumbs.db
 .idea/
 
 # Local-only test photos (not ours): never commit or ship
-public/products/FRESH-FOILS-TEE/
-public/products/HIGH-ROLLERS-TEE/
+# public/products/FRESH-FOILS-TEE/
+# public/products/HIGH-ROLLERS-TEE/

@@ -4,6 +4,7 @@ import logo from '../../assets/logo.png';
 import Drawer from '../ui/Drawer';
 import Caret from '../ui/Caret';
 import AnnouncementBar from './AnnouncementBar';
+import CountrySelectModal from './CountrySelectModal';
 import SearchBar from '../search/SearchBar';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useBag } from '../../hooks/useBag';
@@ -102,6 +103,7 @@ export default function Header({ nav, siteName, announcement, region }) {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchFocusKey, setSearchFocusKey] = useState(0);
   const [openItem, setOpenItem] = useState(null);
+  const [regionOpen, setRegionOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 1025px)');
   const { pathname, search } = useLocation();
   const [searchParams] = useSearchParams();
@@ -123,6 +125,12 @@ export default function Header({ nav, siteName, announcement, region }) {
 
   const closeMenu = () => setMenuOpen(false);
   const closeSearch = () => setSearchOpen(false);
+  const openRegion = () => {
+    setMenuOpen(false);
+    setSearchOpen(false);
+    setRegionOpen(true);
+  };
+  const closeRegion = () => setRegionOpen(false);
   const toggleSearch = () => {
     if (searchAlwaysOpen) {
       setSearchFocusKey((key) => key + 1);
@@ -196,7 +204,7 @@ export default function Header({ nav, siteName, announcement, region }) {
           <DesktopItem key={item.href} item={item} />
         ))}
         {region && (
-          <button type="button" className={`${styles.navLink} ${styles.region}`}>
+          <button type="button" className={`${styles.navLink} ${styles.region}`} onClick={openRegion}>
             {region.label}
           </button>
         )}
@@ -210,12 +218,14 @@ export default function Header({ nav, siteName, announcement, region }) {
           )}
           {drawerSecondary.map(drawerItem)}
           {region && (
-            <button type="button" className={`${styles.drawerLink} ${styles.region}`}>
+            <button type="button" className={`${styles.drawerLink} ${styles.region}`} onClick={openRegion}>
               {region.mobileLabel}
             </button>
           )}
         </nav>
       </Drawer>
+
+      {region && <CountrySelectModal open={regionOpen} onClose={closeRegion} region={region} />}
     </header>
   );
 }

@@ -5,6 +5,23 @@
   "productNote": "Free standard shipping on orders over 150 EUR. Exclusions apply.",
   "region": {
     "label": "US / $",
-    "mobileLabel": "USD / $"
+    "mobileLabel": "USD / $",
+    "title": "Welcome to Streetnut",
+    "prompt": "You are shipping to:",
+    "save": "Save",
+    "selected": "US",
+    "countries": [
+      { "code": "AU", "name": "Australia", "currency": "AUD" },
+      { "code": "CA", "name": "Canada", "currency": "CAD" },
+      { "code": "FR", "name": "France", "currency": "EUR" },
+      { "code": "DE", "name": "Germany", "currency": "EUR" },
+      { "code": "IN", "name": "India", "currency": "INR" },
+      { "code": "IT", "name": "Italy", "currency": "EUR" },
+      { "code": "JP", "name": "Japan", "currency": "JPY" },
+      { "code": "LK", "name": "Sri Lanka", "currency": "LKR" },
+      { "code": "ES", "name": "Spain", "currency": "EUR" },
+      { "code": "GB", "name": "United Kingdom", "currency": "GBP" },
+      { "code": "US", "name": "United States", "currency": "USD" }
+    ]
   }
 }

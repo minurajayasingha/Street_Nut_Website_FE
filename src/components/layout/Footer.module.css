@@ -1,17 +1,78 @@
-/* Copyright is pinned bottom-left on desktop and hidden on mobile (as on the reference) */
+/* Mobile: a static block below the page content with the newsletter row, then the copyright row.
+   Desktop (1025px and up): only the copyright, pinned bottom-left; the newsletter form is hidden. */
 .footer {
-  display: none;
+  box-sizing: border-box;
+  padding: var(--footer-pad-top) var(--footer-pad-x) 0;
+  font-size: var(--fs-12);
+  line-height: var(--lh-page-12);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+}
+
+.form {
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  height: var(--footer-form-height);
+  padding-bottom: var(--footer-form-pad-bottom);
+  border-bottom: var(--footer-form-border) solid var(--color-text);
+}
+
+.input,
+.submit {
+  font: inherit;
+  text-transform: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-text);
+  opacity: 1;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.arrow {
+  display: block;
+  width: var(--footer-arrow-width);
+  height: auto;
+}
+
+.copyright {
+  display: block;
+  padding: var(--footer-row-pad-y) 0;
 }
 
 @media (min-width: 1025px) {
   .footer {
-    display: block;
     position: fixed;
     left: var(--nav-left);
     bottom: 19px;
     z-index: 40;
+    padding: 0;
     font-size: var(--fs-10);
     line-height: var(--lh-10);
-    font-weight: var(--fw-medium);
+  }
+
+  .form {
+    display: none;
+  }
+
+  .copyright {
+    padding: 0;
   }
 }

@@ -139,11 +139,19 @@
   --chart-image-w: 200px;
   --chart-image-gap: 24px;
 
-  /* Home hero (desktop width taken from a 1352px reference screenshot, mobile decided; re-measure) */
+  /* Footer, mobile (measured on reference at 390 and 768: 109.8px tall block) */
+  --footer-pad-x: 20px;
+  --footer-pad-top: 20px;
+  --footer-form-height: 43px;
+  --footer-form-pad-bottom: 10px;
+  --footer-form-border: 2px;
+  --footer-row-pad-y: 15px;
+  --footer-arrow-width: 14px;
+
+  /* Home hero (measured on reference at 390, 768, 1024, 1025, 1440, 1920: centred in the viewport, ratio 0.663) */
   --hero-bg: #000;
-  --hero-width: 100%;
-  --hero-ratio: 4 / 5;
-  --hero-top: var(--header-height);
+  --hero-width: calc(95vw - 19px);
+  --hero-ratio: 0.663;
 
   /* Bag drawer (measured on reference cart drawer at 1440 / 1025 / 768 / 600 / 390) */
   --bag-width: 100%;
@@ -177,6 +185,7 @@
   --search-strip-pad-x: 20px;
   --search-input-fs: 16px;
   --search-input-lh: 1.4;
+  --search-placeholder-fs: var(--fs-12);
   --search-input-gap: 20px;
   --search-action-gap: 20px;
   --search-panel-top: calc(var(--header-height) + var(--search-strip-height));
@@ -184,6 +193,24 @@
   --search-page-grid-gap: 20px;
   --search-page-bottom: 60px;
   --search-empty-pad: 10px;
+
+  /* Country select modal (measured on reference at 1440 and 390) */
+  --country-width: 440px;
+  --country-edge: 10px;
+  --country-pad: 20px;
+  --country-fs: var(--fs-12);
+  --country-lh: var(--lh-page-12);
+  --country-gap: 10px;
+  --country-field-height: 40px;
+  --country-select-pad: 10px;
+  --country-select-pad-right: 30px;
+  --country-save-height: 50px;
+  --country-save-gap: 20px;
+  --country-close-offset: 10px;
+  --country-close-size: 35px;
+  --country-close-pad: 10px;
+  --country-overlay: rgb(255 255 255 / 0.5);
+  --z-country: 80;
 }
 
 /* Bag drawer tablet width and sizes (reference tabletp token, 744px) */
@@ -247,8 +274,7 @@
     --product-info-max: 325px;
     --product-block-gap: 16px;
 
-    --hero-width: 39.4vw;
-    --hero-top: 0px;
+    --hero-width: calc(40vw - 8px);
 
     --bag-width: 40vw;
     --bag-fs: var(--fs-10);
@@ -264,7 +290,12 @@
 
     --search-bar-pad-right: 15px;
     --search-input-fs: var(--fs-10);
+    --search-placeholder-fs: var(--fs-10);
     --search-action-gap: 15px;
     --search-panel-top: var(--header-height);
+
+    --country-fs: var(--fs-10);
+    --country-lh: var(--lh-10);
+    --country-save-height: 45px;
   }
 }

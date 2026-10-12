@@ -73,6 +73,35 @@ test('drawer shows the mobile region label', async () => {
   expect(within(screen.getByRole('dialog')).getByRole('button', { name: 'USD / $' })).toBeInTheDocument();
 });
 
+const regionModal = {
+  ...region,
+  title: 'Welcome to Streetnut',
+  prompt: 'You are shipping to:',
+  save: 'Save',
+  countries: [{ code: 'US', name: 'United States', currency: 'USD' }],
+  selected: 'US',
+};
+
+test('the desktop region button opens the country modal and Save closes it', async () => {
+  setup({ region: regionModal });
+  const user = userEvent.setup();
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  await user.click(screen.getByRole('button', { name: 'US / $' }));
+  expect(screen.getByRole('dialog', { name: 'Welcome to Streetnut' })).toBeInTheDocument();
+  await user.click(screen.getByRole('button', { name: 'Save' }));
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+});
+
+test('the drawer region button closes the drawer and opens the country modal', async () => {
+  setup({ region: regionModal });
+  const user = userEvent.setup();
+  await user.click(screen.getByRole('button', { name: /^menu$/i }));
+  await user.click(within(screen.getByRole('dialog')).getByRole('button', { name: 'USD / $' }));
+  const dialogs = screen.getAllByRole('dialog');
+  expect(dialogs).toHaveLength(1);
+  expect(dialogs[0]).toHaveAccessibleName('Welcome to Streetnut');
+});
+
 test('the header button switches MENU to CLOSE and closes the drawer', async () => {
   setup();
   await userEvent.click(screen.getByRole('button', { name: /^menu$/i }));

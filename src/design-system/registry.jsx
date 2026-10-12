@@ -159,9 +159,28 @@ export const registry = [
       { name: 'nav', type: '{ primary, secondary }', description: 'Navigation groups from navigationService.' },
       { name: 'siteName', type: 'string', description: 'Logo alt text.' },
       { name: 'announcement', type: 'string', description: 'Text for the announcement bar.' },
-      { name: 'region', type: '{ label, mobileLabel }', description: 'Region switcher label (optional).' },
+      { name: 'region', type: '{ label, mobileLabel, ...CountrySelectModal copy }', description: 'Region switcher labels and country modal content (optional).' },
     ],
     usage: `<Header nav={nav} siteName="Streetnut" announcement="..." region={region} />`,
+    Demo: frame('/', 560),
+  },
+  {
+    id: 'country-select-modal',
+    group: 'Layout components',
+    name: 'CountrySelectModal',
+    source: 'components/layout/CountrySelectModal.jsx',
+    description:
+      'Centred "you are shipping to" dialog opened from the US / $ nav button (desktop side nav and mobile drawer). UI only: Save closes it, the choice is not stored yet. Locks page scroll. Clicking the overlay does not close it; Save, Escape and the X (desktop) do.',
+    props: [
+      { name: 'open', type: 'boolean', description: 'Whether the dialog is shown.' },
+      { name: 'onClose', type: '() => void', description: 'Called on Save, X and Escape.' },
+      {
+        name: 'region',
+        type: '{ title, prompt, save, selected, countries: { code, name, currency }[] }',
+        description: 'Copy and country list from the site service.',
+      },
+    ],
+    usage: `<CountrySelectModal open={open} onClose={() => setOpen(false)} region={site.region} />`,
     Demo: frame('/', 560),
   },
   {
@@ -179,7 +198,8 @@ export const registry = [
     group: 'Layout components',
     name: 'Footer',
     source: 'components/layout/Footer.jsx',
-    description: 'Copyright line pinned bottom-left on desktop; hidden on mobile.',
+    description:
+      'Desktop (1025px and up): copyright pinned bottom-left. Below 1025px: a static block under the page content with a newsletter row (NEWSLETTER * field and an arrow button, UI only, nothing is sent) and the copyright row, 109.8px tall as on the reference.',
     props: [{ name: 'siteName', type: 'string', description: 'Shown after the copyright year.' }],
     usage: `<Footer siteName="Streetnut" />`,
     Demo: frame('/', 560),
@@ -481,7 +501,7 @@ export const registry = [
     name: 'HeroMedia',
     source: 'components/home/HeroMedia.jsx',
     description:
-      'Home hero. A centred muted, looping, autoplaying inline video. Desktop: 39.4vw wide and at least the viewport tall on a black background. Mobile: full width at 4 / 5 below the header. Falls back to the poster image, or an empty black frame, when there is no videoSrc. Swap the file at public/videos/hero.mp4 (or change home.json) to change the video.',
+      'Home hero. A centred muted, looping, autoplaying inline video. Frame ratio 0.663, centred in the viewport (the page grows when the frame is taller). Width is calc(40vw - 8px) from 1025px and calc(95vw - 19px) below, as measured on the reference. Falls back to the poster image, or an empty black frame, when there is no videoSrc. Swap the file at public/videos/hero.mp4 (or change home.json) to change the video.',
     props: [
       { name: 'videoSrc', type: 'string', description: 'Video URL (mp4). Optional.' },
       { name: 'poster', type: 'string', description: 'Image shown before the video plays, or alone when there is no video. Optional.' },
