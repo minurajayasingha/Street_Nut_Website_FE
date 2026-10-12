@@ -119,6 +119,24 @@ export const registry = [
     Demo: RichTextDemo,
   },
 
+  {
+    id: 'search-field',
+    group: 'UI components',
+    name: 'SearchField',
+    source: 'components/search/SearchField.jsx',
+    description:
+      'Bare uppercase search input. The bar variant (desktop) adds VIEW ALL RESULTS and CLEAR once there is a term; the strip variant (mobile) adds ENTER.',
+    props: [
+      { name: 'variant', type: "'bar' | 'strip'", description: 'Which actions to show.' },
+      { name: 'value', type: 'string', description: 'Current term.' },
+      { name: 'onChange', type: '(value) => void', description: 'Called on every keystroke.' },
+      { name: 'onSubmit', type: '(term) => void', description: 'Called with the trimmed term. Not called for a blank term.' },
+      { name: 'onClear', type: '() => void', description: 'Bar variant: CLEAR was pressed.' },
+      { name: 'showEnter', type: 'boolean', description: 'Strip variant: show ENTER. Default true.' },
+    ],
+    usage: `<SearchField variant="strip" value={term} onChange={setTerm} onSubmit={go} onClear={clear} />`,
+    Demo: frame('/search?q=tee', 520),
+  },
   // ---- Layout components ----
   {
     id: 'layout',
@@ -203,6 +221,23 @@ export const registry = [
     Demo: frame('/support/warranty', 520),
   },
 
+  {
+    id: 'search-bar',
+    group: 'Layout components',
+    name: 'SearchBar',
+    source: 'components/search/SearchBar.jsx',
+    description:
+      'Header search. Desktop (1025px and up): a white bar over the header with a live results panel under it. Mobile: a 52px strip under the header with a full-width results panel. Closes with CLOSE, a click outside, a route change, or ESC (mobile). Open the preview and press SEARCH.',
+    props: [
+      { name: 'open', type: 'boolean', description: 'Open state, owned by Header.' },
+      { name: 'persistent', type: 'boolean', description: 'True on /search: the desktop field stays visible with the page term.' },
+      { name: 'initialTerm', type: 'string', description: 'Term to show when closed or persistent.' },
+      { name: 'focusKey', type: 'number', description: 'Change it to focus the field.' },
+      { name: 'onClose', type: '() => void', description: 'Click outside, or ESC on mobile.' },
+    ],
+    usage: `<SearchBar open={searchOpen} onClose={() => setSearchOpen(false)} />`,
+    Demo: frame('/', 700),
+  },
   // ---- Product components ----
   {
     id: 'product-card',
@@ -342,6 +377,21 @@ export const registry = [
     Demo: frame('/products/fresh-foils-tee-black', 900),
   },
 
+  {
+    id: 'search-results',
+    group: 'Product components',
+    name: 'SearchResults',
+    source: 'components/search/SearchResults.jsx',
+    description:
+      'Search results grid (four columns from 1025px, two below), or a "No results for" line once the lookup settled with nothing.',
+    props: [
+      { name: 'term', type: 'string', description: 'Trimmed term.' },
+      { name: 'items', type: 'product[]', description: 'Matches from searchProducts.' },
+      { name: 'settled', type: 'boolean', description: 'False while a lookup for this term is pending.' },
+    ],
+    usage: `<SearchResults term="tee" items={items} settled />`,
+    Demo: frame('/search?q=tee', 800),
+  },
   // ---- Bag components ----
   {
     id: 'bag-drawer',
@@ -420,10 +470,25 @@ export const registry = [
     group: 'Page patterns',
     name: 'Home',
     source: 'pages/Home.jsx',
-    description: 'Home page (hero in progress).',
+    description: 'Home page. Shows the hero video from homeService.getHomeContent(). Featured products and full footer are not built yet.',
     props: [],
     usage: `<Route index element={<Home />} />`,
-    Demo: frame('/', 560),
+    Demo: frame('/', 700),
+  },
+  {
+    id: 'hero-media',
+    group: 'Page patterns',
+    name: 'HeroMedia',
+    source: 'components/home/HeroMedia.jsx',
+    description:
+      'Home hero. A centred muted, looping, autoplaying inline video. Desktop: 39.4vw wide and at least the viewport tall on a black background. Mobile: full width at 4 / 5 below the header. Falls back to the poster image, or an empty black frame, when there is no videoSrc. Swap the file at public/videos/hero.mp4 (or change home.json) to change the video.',
+    props: [
+      { name: 'videoSrc', type: 'string', description: 'Video URL (mp4). Optional.' },
+      { name: 'poster', type: 'string', description: 'Image shown before the video plays, or alone when there is no video. Optional.' },
+      { name: 'alt', type: 'string', description: 'Accessible label for the video or image.' },
+    ],
+    usage: `<HeroMedia videoSrc="/videos/hero.mp4" poster="/hero.jpg" alt="Hero film" />`,
+    Demo: frame('/', 700),
   },
   {
     id: 'page-product',
@@ -485,5 +550,16 @@ export const registry = [
     props: [],
     usage: `<Route path="warranty" element={<Warranty />} />`,
     Demo: frame('/support/warranty', 560),
+  },
+  {
+    id: 'page-search',
+    group: 'Page patterns',
+    name: 'Search page',
+    source: 'pages/Search.jsx',
+    description:
+      '/search?q=term. Hidden H1 "Search results for term". Mobile: the field sits under the header (y=89) and the grid starts at y=131. Desktop: the field lives in the header and the grid starts at y=54, x=180.',
+    props: [],
+    usage: `<Route path="search" element={<Search />} />`,
+    Demo: frame('/search?q=tee', 800),
   },
 ];

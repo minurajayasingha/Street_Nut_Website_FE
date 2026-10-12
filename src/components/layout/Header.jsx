@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useSearchParams } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 import Drawer from '../ui/Drawer';
 import Caret from '../ui/Caret';
 import AnnouncementBar from './AnnouncementBar';
+import SearchBar from '../search/SearchBar';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 import { useBag } from '../../hooks/useBag';
 import { resolveNav } from '../../utils/resolveNav';
@@ -98,9 +99,14 @@ function DrawerItem({ item, open, onToggle, onNavigate }) {
 
 export default function Header({ nav, siteName, announcement, region }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchFocusKey, setSearchFocusKey] = useState(0);
   const [openItem, setOpenItem] = useState(null);
   const isDesktop = useMediaQuery('(min-width: 1025px)');
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+  const [searchParams] = useSearchParams();
+  const onSearchPage = pathname === '/search';
+  const searchAlwaysOpen = onSearchPage && isDesktop;
   const { count, openBag } = useBag();
   const { primary, secondary } = resolveNav(nav, pathname);
   const drawerPrimary = nav?.primary ?? [];
@@ -110,7 +116,25 @@ export default function Header({ nav, siteName, announcement, region }) {
     if (isDesktop) setMenuOpen(false);
   }, [isDesktop]);
 
+  // Any navigation closes search
+  useEffect(() => {
+    setSearchOpen(false);
+  }, [pathname, search]);
+
   const closeMenu = () => setMenuOpen(false);
+  const closeSearch = () => setSearchOpen(false);
+  const toggleSearch = () => {
+    if (searchAlwaysOpen) {
+      setSearchFocusKey((key) => key + 1);
+      return;
+    }
+    setSearchOpen((open) => !open);
+    setMenuOpen(false);
+  };
+  const toggleMenu = () => {
+    setMenuOpen((open) => !open);
+    setSearchOpen(false);
+  };
   const drawerItem = (item) => (
     <DrawerItem
       key={item.href}
@@ -127,17 +151,35 @@ export default function Header({ nav, siteName, announcement, region }) {
         <img src={logo} alt={siteName} />
       </Link>
 
-      <AnnouncementBar text={announcement} />
+      {/* The announcement and the search bar share one cell, so the bar ends where the actions begin */}
+      <div className={styles.center}>
+        <AnnouncementBar text={searchOpen || searchAlwaysOpen ? undefined : announcement} />
+        <SearchBar
+          open={searchOpen}
+          persistent={onSearchPage}
+          initialTerm={onSearchPage ? (searchParams.get('q') ?? '') : ''}
+          focusKey={searchFocusKey}
+          onClose={closeSearch}
+        />
+      </div>
 
       <div className={styles.actions}>
-        <button>Search</button>
+        <button
+          type="button"
+          data-search-toggle
+          aria-expanded={searchOpen}
+          className={searchOpen || searchAlwaysOpen ? styles.searchActive : undefined}
+          onClick={toggleSearch}
+        >
+          {searchOpen ? 'Close' : 'Search'}
+        </button>
         <button type="button" onClick={openBag}>
           {count > 0 ? `Bag (${count})` : 'Bag'}
         </button>
         <button
           className={styles.menuButton}
           aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
+          onClick={toggleMenu}
         >
           {menuOpen ? 'Close' : 'Menu'}
         </button>

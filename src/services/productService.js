@@ -20,6 +20,21 @@ export const getProductBySlug = async (slug) => {
 export const getProductFamily = async (family) =>
   family ? products.filter((p) => p.family === family).map(withSizes) : [];
 
+const searchText = (product) =>
+  [product.name, product.color, product.family?.replace(/-/g, ' ')].filter(Boolean).join(' ').toLowerCase();
+
+// Every word of the term must appear in the product's name, colour or family.
+export const searchProducts = async (term) => {
+  const words = String(term ?? '').toLowerCase().split(/\s+/).filter(Boolean);
+  if (words.length === 0) return [];
+  return products
+    .filter((product) => {
+      const text = searchText(product);
+      return words.every((word) => text.includes(word));
+    })
+    .map(withSizes);
+};
+
 // A size chart is { notes?, units: [{ id, label, rows }], image? }. Which garment uses which chart
 // is decided by the product's `info` entry: { title: 'Size guide', sizeChart: 'tops' }.
 export const getSizeChart = async (key) => (key && sizeCharts[key]) || null;

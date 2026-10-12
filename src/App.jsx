@@ -13,6 +13,7 @@ import SizeGuide from './pages/support/SizeGuide';
 import Warranty from './pages/support/Warranty';
 import Accessibility from './pages/support/Accessibility';
 import Legal from './pages/legal/Legal';
+import Search from './pages/Search';
 
 // Developer-only design system page: lazy and dev-gated so it never ships in the production bundle
 const DesignSystemPage = import.meta.env.DEV ? lazy(() => import('./design-system/DesignSystemPage')) : null;
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="accessibility" element={<Accessibility />} />
         </Route>
         <Route path="legal" element={<Legal />} />
+        <Route path="search" element={<Search />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

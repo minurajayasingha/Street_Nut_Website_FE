@@ -22,3 +22,10 @@
     column-gap: var(--grid-gap-x-wide);
   }
 }
+
+/* Search results: four columns from the desktop breakpoint (measured at 1025px and 1440px) */
+@media (min-width: 1025px) {
+  .search {
+    grid-template-columns: repeat(var(--grid-cols-wide), minmax(0, 1fr));
+  }
+}

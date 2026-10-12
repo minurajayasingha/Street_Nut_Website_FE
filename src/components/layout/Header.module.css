@@ -22,12 +22,26 @@
   flex: none;
   width: var(--logo-width);
   margin-right: 40px;
+  /* Above the white search strip */
+  position: relative;
+  z-index: 2;
 }
 
 .logo img {
   width: 100%;
   height: auto;
-  mix-blend-mode: multiply;
+}
+
+/* Announcement and search bar share this cell (nav column to actions) */
+.center {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.center > * {
+  grid-area: 1 / 1;
 }
 
 .actions {
@@ -38,6 +52,16 @@
   margin-left: auto;
   margin-top: calc(var(--header-actions-top) - var(--logo-offset));
   margin-right: calc(20px - var(--logo-offset));
+  /* Above the search bar, which covers the header between the nav column and the actions */
+  position: relative;
+  z-index: 2;
+}
+
+/* On desktop the open or current search button is underlined, as on the reference */
+@media (min-width: 1025px) {
+  .searchActive {
+    text-decoration: underline;
+  }
 }
 
 .menuButton {

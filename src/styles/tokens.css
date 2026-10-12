@@ -127,7 +127,6 @@
   --product-lines-indent: 5px;
   --product-chat-gap: 4px;
   --product-content-gap: 4px;
-
   /* Product size chart (desktop measured on the reference size guide; the diagram size and gap are not) */
   --chart-toggle-gap: 19px;
   --chart-toggle-pad: 10px;
@@ -139,6 +138,13 @@
   --chart-cell-w: 31px;
   --chart-image-w: 200px;
   --chart-image-gap: 24px;
+
+  /* Home hero (desktop width taken from a 1352px reference screenshot, mobile decided; re-measure) */
+  --hero-bg: #000;
+  --hero-width: 100%;
+  --hero-ratio: 4 / 5;
+  --hero-top: var(--header-height);
+
   /* Bag drawer (measured on reference cart drawer at 1440 / 1025 / 768 / 600 / 390) */
   --bag-width: 100%;
   --bag-fs: var(--fs-12);
@@ -164,6 +170,20 @@
   --bag-overlay: rgb(255 255 255 / 0.5);
   --z-bag-overlay: 60;
   --z-bag: 70;
+
+  /* Search (measured on reference: desktop bar at 1440, strip and panel at 390 and 768) */
+  --search-strip-height: 52px;
+  --search-strip-pad-top: 10px;
+  --search-strip-pad-x: 20px;
+  --search-input-fs: 16px;
+  --search-input-lh: 1.4;
+  --search-input-gap: 20px;
+  --search-action-gap: 20px;
+  --search-panel-top: calc(var(--header-height) + var(--search-strip-height));
+  --search-page-field-top: 89px;
+  --search-page-grid-gap: 20px;
+  --search-page-bottom: 60px;
+  --search-empty-pad: 10px;
 }
 
 /* Bag drawer tablet width and sizes (reference tabletp token, 744px) */
@@ -227,6 +247,9 @@
     --product-info-max: 325px;
     --product-block-gap: 16px;
 
+    --hero-width: 39.4vw;
+    --hero-top: 0px;
+
     --bag-width: 40vw;
     --bag-fs: var(--fs-10);
     --bag-lh: var(--lh-10);
@@ -238,5 +261,10 @@
     --bag-qty-h: 14px;
     --bag-qty-gap: 0px;
     --bag-note-gap: 0px;
+
+    --search-bar-pad-right: 15px;
+    --search-input-fs: var(--fs-10);
+    --search-action-gap: 15px;
+    --search-panel-top: var(--header-height);
   }
 }

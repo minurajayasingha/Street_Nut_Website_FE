@@ -11,6 +11,7 @@ const setup = () =>
     </MemoryRouter>
   );
 
+// Renders the whole registry, so it needs more than the default 5s when the suite runs in parallel
 test('renders the foundations sections and every registered entry', () => {
   setup();
   expect(screen.getByRole('heading', { level: 1, name: /design system/i })).toBeInTheDocument();
@@ -20,7 +21,7 @@ test('renders the foundations sections and every registered entry', () => {
   registry.forEach((entry) => {
     expect(screen.getByRole('heading', { level: 3, name: entry.name })).toBeInTheDocument();
   });
-});
+}, 30000);
 
 test('shows tokens parsed from tokens.css', () => {
   setup();

@@ -1,0 +1,32 @@
+/* The H1 is read by assistive tech only, as on the reference */
+.title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.field {
+  padding: 0 var(--grid-pad-right) 0 var(--grid-pad-left);
+}
+
+/* Mobile and tablet: the field sits in the page, the grid follows 20px below it */
+@media (max-width: 1024px) {
+  .results {
+    --grid-top: var(--search-page-grid-gap);
+    padding-top: var(--search-page-field-top);
+    padding-bottom: var(--search-page-bottom);
+  }
+}
+
+/* Tablet keeps the 20px gutters here (the collection grid runs flush) */
+@media (min-width: 744px) and (max-width: 1024px) {
+  .results {
+    --page-tablet-flush: var(--grid-pad-left);
+  }
+}

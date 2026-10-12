@@ -31,3 +31,14 @@ test('an empty or missing product list renders an empty list', () => {
   setup({});
   expect(screen.getByRole('list', { name: 'Products' }).children).toHaveLength(0);
 });
+
+test('the search variant adds the dense-grid class and keeps the list label', () => {
+  setup({ products, variant: 'search', label: 'Search results' });
+  const list = screen.getByRole('list', { name: 'Search results' });
+  expect(list.className).toMatch(/search/);
+});
+
+test('without a variant the list has no search class', () => {
+  setup({ products });
+  expect(screen.getByRole('list', { name: 'Products' }).className).not.toMatch(/search/);
+});

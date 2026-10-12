@@ -1,0 +1,59 @@
+.root {
+  display: contents;
+}
+
+/* Desktop: white bar over the header, from the nav column to the actions.
+   It shares the header's centre cell with the announcement, so its right edge follows the actions. */
+.bar {
+  grid-area: 1 / 1;
+  align-self: start;
+  z-index: 1;
+  box-sizing: border-box;
+  height: var(--header-height);
+  margin-top: calc(-1 * var(--logo-offset));
+  padding: var(--header-actions-top) var(--search-bar-pad-right) 0 0;
+  background: var(--color-bg);
+}
+
+/* Mobile and tablet: white from the top of the viewport (behind the header) down to the end of the
+   strip, so the page never shows between the header and the field */
+.strip {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  height: calc(var(--header-height) + var(--search-strip-height));
+  padding: calc(var(--header-height) + var(--search-strip-pad-top)) var(--search-strip-pad-x) 0;
+  background: var(--color-bg);
+}
+
+.panel {
+  position: fixed;
+  top: var(--search-panel-top);
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  overflow-y: auto;
+  background: var(--color-bg);
+}
+
+/* The panel sits flush under the bar or strip, so the grid has no top padding of its own */
+.panelInner {
+  --grid-top: 0px;
+}
+
+/* Desktop: the panel starts at the content column and ends at the grid's right gutter */
+@media (min-width: 1025px) {
+  .panel {
+    left: var(--grid-pad-left);
+    right: var(--grid-pad-right);
+  }
+
+  .panelInner {
+    --grid-pad-left: 0px;
+    --grid-pad-right: 0px;
+  }
+}

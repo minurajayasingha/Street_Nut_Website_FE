@@ -1,0 +1,20 @@
+.empty {
+  margin: 0;
+  padding: calc(var(--grid-top) + var(--search-empty-pad)) var(--grid-pad-right) 0 var(--grid-pad-left);
+  font-size: var(--card-fs);
+  line-height: var(--card-lh);
+  font-weight: var(--fw-medium);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* In the search panel the line sits in the middle of the whole panel */
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: calc(100vh - var(--search-panel-top));
+  min-height: calc(100dvh - var(--search-panel-top));
+  padding: 0 var(--grid-pad-right) 0 var(--grid-pad-left);
+}

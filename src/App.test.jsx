@@ -9,10 +9,11 @@ const renderAt = (path) =>
     </MemoryRouter>
   );
 
-test('home route renders', () => {
-  renderAt('/');
+test('home route renders the hero video', async () => {
+  const { container } = renderAt('/');
   expect(screen.getByRole('main')).toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: /home/i })).toBeInTheDocument();
+  expect(await screen.findByLabelText(/hero film/i)).toBeInTheDocument();
+  expect(container.querySelector('main video')).toBeInTheDocument();
 });
 
 test('unknown route renders NotFound inside layout', () => {
@@ -48,16 +49,6 @@ test('not found heading uses the error tone', () => {
   renderAt('/nope/nothing');
   expect(screen.getByRole('heading', { name: /not found/i })).toHaveAttribute('data-tone', 'error');
 });
-
-test.each([['/', /^home$/i]])(
-  '%s is a centered placeholder without the error tone',
-  (path, heading) => {
-    renderAt(path);
-    const h1 = screen.getByRole('heading', { level: 1, name: heading });
-    expect(h1).not.toHaveAttribute('data-tone');
-    expect(h1.parentElement.className).toMatch(/root/);
-  }
-);
 
 test('/products/:slug shows the product, an unknown slug shows not found', async () => {
   const { unmount } = renderAt('/products/fresh-foils-tee-black');

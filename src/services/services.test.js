@@ -1,6 +1,7 @@
 import { getSiteInfo } from './siteService';
 import { getNavigation } from './navigationService';
 import { getProducts, getProductBySlug } from './productService';
+import { getHomeContent } from './homeService';
 import stock from '../data/stock.json';
 import { getLegalPages, getSupportPage, getShippingReturns, getWarranty, getAccessibility, getSizeGuide } from './pageService';
 
@@ -184,4 +185,11 @@ test('collection filter: no argument and "all" return everything, an unknown han
   expect(everything).toHaveLength(12);
   expect(await getProducts({ collection: 'all' })).toEqual(everything);
   expect(await getProducts({ collection: 'knits' })).toEqual([]);
+});
+
+test('home content has a hero with a video source and alt text', async () => {
+  const home = await getHomeContent();
+  expect(home.hero.videoSrc).toMatch(/^\//);
+  expect(typeof home.hero.poster).toBe('string');
+  expect(home.hero.alt).toBeTruthy();
 });
