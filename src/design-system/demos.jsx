@@ -5,6 +5,10 @@ import ContentBlocks from '../components/ui/ContentBlocks';
 import DataTable from '../components/ui/DataTable';
 import Drawer from '../components/ui/Drawer';
 import RichText from '../components/ui/RichText';
+import QuantityStepper from '../components/bag/QuantityStepper';
+import BagItem from '../components/bag/BagItem';
+import BagSummary from '../components/bag/BagSummary';
+import BagEmpty from '../components/bag/BagEmpty';
 import IframeDemo from './IframeDemo';
 import styles from './DesignSystemPage.module.css';
 
@@ -89,6 +93,47 @@ export function RichTextDemo() {
       <RichText text={'**Bold**, _italic_ and a [site link](/support).\nA new line becomes a line break.'} />
     </p>
   );
+}
+
+const demoLine = {
+  id: 'demo:M',
+  slug: 'fresh-foils-tee-black',
+  name: 'Fresh Foils Tee',
+  color: 'Black',
+  size: 'M',
+  price: 45,
+  currency: 'EUR',
+  image: '/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-BLACK/1.webp',
+  quantity: 1,
+};
+
+export function QuantityStepperDemo() {
+  const [value, setValue] = useState(1);
+  return <QuantityStepper value={value} onChange={(next) => setValue(Math.max(1, next))} />;
+}
+
+export function BagItemDemo() {
+  const [quantity, setQuantity] = useState(1);
+  return (
+    <ul style={{ listStyle: 'none', padding: 0, maxWidth: 360 }}>
+      <BagItem item={{ ...demoLine, quantity }} onQuantityChange={(next) => setQuantity(Math.max(1, next))} />
+    </ul>
+  );
+}
+
+export function BagSummaryDemo() {
+  return (
+    <BagSummary
+      subtotal={90}
+      currency="EUR"
+      taxNote="Taxes and shipping are calculated at checkout."
+      shippingNote="Free standard shipping on orders over 150 EUR."
+    />
+  );
+}
+
+export function BagEmptyDemo() {
+  return <BagEmpty message="Your bag is empty." shippingNote="Free standard shipping on orders over 150 EUR." />;
 }
 
 export function PreviewFrame({ path, height }) {

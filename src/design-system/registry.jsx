@@ -5,13 +5,17 @@ import {
   DataTableDemo,
   DrawerDemo,
   RichTextDemo,
+  QuantityStepperDemo,
+  BagItemDemo,
+  BagSummaryDemo,
+  BagEmptyDemo,
   PreviewFrame,
 } from './demos';
 
 // THE place to document the UI. Every file in src/components must have an entry here
 // (registry.test.js fails otherwise). Add an entry whenever you build a new component or page pattern:
 //   id, group, name, source (path from src/), description, props, usage, Demo.
-export const GROUPS = ['UI components', 'Layout components', 'Product components', 'Page patterns'];
+export const GROUPS = ['UI components', 'Layout components', 'Product components', 'Bag components', 'Page patterns'];
 
 const frame = (path, height) =>
   function Frame() {
@@ -294,10 +298,10 @@ export const registry = [
     name: 'AddToBag',
     source: 'components/product/AddToBag.jsx',
     description:
-      'Full-width black ADD TO BAG button, 35px high (24px below the colour row on mobile, 16px on desktop). Disabled at half opacity. The bag does not exist yet: the page passes no onClick; the backend developer connects it later.',
+      'Full-width black ADD TO BAG button, 35px high (24px below the colour row on mobile, 16px on desktop). Disabled at half opacity. On the product page it opens the bag drawer; adding the real item is connected by the backend developer later.',
     props: [
       { name: 'disabled', type: 'boolean', description: 'True until a size is chosen (when the product has sizes).' },
-      { name: 'onClick', type: '() => void', description: 'Optional. Not wired yet.' },
+      { name: 'onClick', type: '() => void', description: 'Optional. The product page passes openBag.' },
     ],
     usage: `<AddToBag disabled={!size} />`,
     Demo: frame('/products/fresh-foils-tee-black', 900),
@@ -314,6 +318,78 @@ export const registry = [
     ],
     usage: `<ProductInfo product={product} />`,
     Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
+
+  // ---- Bag components ----
+  {
+    id: 'bag-drawer',
+    group: 'Bag components',
+    name: 'BagDrawer',
+    source: 'components/bag/BagDrawer.jsx',
+    description:
+      'The shopping bag. Right-side panel opened by BAG in the header or ADD TO BAG on the product page; a white 50% overlay covers the page, scroll is locked, Escape / overlay / CLOSE close it and focus returns to the opener. Width 100% below 744, 67.5vw at 744-1024, 40vw from 1025. Empty state: message + CONTINUE SHOPPING. Filled state: lines, summary, CHECKOUT. Reads everything from useBag(); mounted once in Layout. Click BAG in the preview to open it.',
+    props: [],
+    usage: `<BagProvider><BagDrawer /></BagProvider>`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
+  {
+    id: 'bag-item',
+    group: 'Bag components',
+    name: 'BagItem',
+    source: 'components/bag/BagItem.jsx',
+    description:
+      'One bag line: image (links to the product), title, colour / size, price, quantity stepper. No remove button: quantity 0 removes the line. Image 120x150 below 744, 175x218.8 from 744.',
+    props: [
+      { name: 'item', type: '{ id, slug, name, color?, size?, price, currency, image, quantity }', description: 'A line from bagService / useBag().' },
+      { name: 'onQuantityChange', type: '(qty) => void', description: 'Called with the new quantity (0 = remove).' },
+      { name: 'onNavigate', type: '() => void', description: 'Called when the image link is followed (the drawer closes).' },
+    ],
+    usage: `<BagItem item={item} onQuantityChange={(q) => setQuantity(item.id, q)} />`,
+    Demo: BagItemDemo,
+  },
+  {
+    id: 'quantity-stepper',
+    group: 'Bag components',
+    name: 'QuantityStepper',
+    source: 'components/bag/QuantityStepper.jsx',
+    description:
+      '- / value / + control. Cells are 20x14 from 1025 and 16x30 (gap 4) below. The value is read-only; the buttons ask for value -/+ 1 and the parent decides what to do with it.',
+    props: [
+      { name: 'value', type: 'number', description: 'Current quantity.' },
+      { name: 'onChange', type: '(next: number) => void', description: 'Called with the requested quantity.' },
+    ],
+    usage: `<QuantityStepper value={qty} onChange={setQty} />`,
+    Demo: QuantityStepperDemo,
+  },
+  {
+    id: 'bag-summary',
+    group: 'Bag components',
+    name: 'BagSummary',
+    source: 'components/bag/BagSummary.jsx',
+    description:
+      'Tax note, shipping note and a SUBTOTAL row (label left, amount right). Notes that are missing leave no gap.',
+    props: [
+      { name: 'subtotal', type: 'number', description: 'Sum of price x quantity.' },
+      { name: 'currency', type: 'string', description: 'ISO currency code.' },
+      { name: 'taxNote', type: 'string', description: 'Optional. From bagService.getBagInfo().' },
+      { name: 'shippingNote', type: 'string', description: 'Optional. From bagService.getBagInfo().' },
+    ],
+    usage: `<BagSummary subtotal={90} currency="EUR" taxNote={info.taxNote} />`,
+    Demo: BagSummaryDemo,
+  },
+  {
+    id: 'bag-empty',
+    group: 'Bag components',
+    name: 'BagEmpty',
+    source: 'components/bag/BagEmpty.jsx',
+    description:
+      'Empty-bag text: the message, a blank line, then the shipping note. Renders nothing visible without text.',
+    props: [
+      { name: 'message', type: 'string', description: 'Optional. From bagService.getBagInfo().' },
+      { name: 'shippingNote', type: 'string', description: 'Optional.' },
+    ],
+    usage: `<BagEmpty message={info.emptyMessage} shippingNote={info.shippingNote} />`,
+    Demo: BagEmptyDemo,
   },
 
   // ---- Page patterns ----

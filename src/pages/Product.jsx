@@ -10,6 +10,7 @@ import { getProductBySlug, getProductFamily } from '../services/productService';
 import { formatPrice } from '../utils/formatPrice';
 import { getProductState } from '../utils/productState';
 import { hasContent } from '../utils/hasContent';
+import { useBag } from '../hooks/useBag';
 import styles from './Product.module.css';
 
 function ProductDetail({ product, family, initialSize }) {
@@ -21,6 +22,7 @@ function ProductDetail({ product, family, initialSize }) {
       ? initialSize
       : null;
   const [size, setSize] = useState(startSize);
+  const { openBag } = useBag();
   const label = hasContent(product.color) ? `${product.color} ${product.name}` : product.name;
 
   return (
@@ -39,7 +41,7 @@ function ProductDetail({ product, family, initialSize }) {
           {soldOut ? (
             <p className={styles.soldOut}>Sold out</p>
           ) : (
-            <AddToBag disabled={showSizes && size === null} />
+            <AddToBag disabled={showSizes && size === null} onClick={openBag} />
           )}
           <ProductInfo product={product} />
         </div>

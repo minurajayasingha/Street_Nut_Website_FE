@@ -1,0 +1,13 @@
+.empty {
+  padding: 0 var(--bag-pad-x);
+  text-transform: uppercase;
+}
+
+.empty p {
+  margin: 0;
+}
+
+/* one blank line between the two paragraphs, as on the reference */
+.empty p + p {
+  margin-top: var(--bag-lh);
+}

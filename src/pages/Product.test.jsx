@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import Product from './Product';
+import { BagProvider } from '../hooks/useBag';
+import BagDrawer from '../components/bag/BagDrawer';
 import { getProductBySlug, getProductFamily } from '../services/productService';
 
 vi.mock('../services/productService', () => ({
@@ -139,4 +141,20 @@ test('a family of one shows no colour switch', async () => {
   renderAt('/products/a-black');
   await screen.findByRole('heading', { name: 'A Tee' });
   expect(screen.queryByRole('list', { name: 'Colours' })).toBeNull();
+});
+
+test('ADD TO BAG opens the bag drawer', async () => {
+  getProductBySlug.mockResolvedValue(base);
+  render(
+    <MemoryRouter initialEntries={['/products/a-black?size=S']}>
+      <BagProvider initialItems={[]} initialInfo={{ emptyMessage: 'Empty bag' }}>
+        <Routes>
+          <Route path="products/:slug" element={<Product />} />
+        </Routes>
+        <BagDrawer />
+      </BagProvider>
+    </MemoryRouter>
+  );
+  await userEvent.click(await screen.findByRole('button', { name: 'Add to bag' }));
+  expect(screen.getByRole('dialog', { name: 'Shopping bag' })).toBeInTheDocument();
 });

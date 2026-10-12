@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import BagDrawer from '../bag/BagDrawer';
+import { BagProvider } from '../../hooks/useBag';
 import { getSiteInfo } from '../../services/siteService';
 import { getNavigation } from '../../services/navigationService';
 
@@ -24,7 +26,7 @@ export default function Layout() {
   const siteName = site?.name ?? 'Streetnut';
 
   return (
-    <>
+    <BagProvider>
       <Header
         nav={nav}
         siteName={siteName}
@@ -35,6 +37,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer siteName={siteName} />
-    </>
+      <BagDrawer />
+    </BagProvider>
   );
 }

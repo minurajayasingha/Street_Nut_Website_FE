@@ -1,0 +1,89 @@
+/* Opens instantly on the reference (no transition); white overlay at 50% covers the page and header */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bag-overlay);
+  background: var(--bag-overlay);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-bag);
+  display: flex;
+  flex-direction: column;
+  width: var(--bag-width);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--bag-fs);
+  line-height: var(--bag-lh);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  outline: none;
+}
+
+.header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--bag-head-min);
+  padding: var(--bag-head-pad-y) var(--bag-pad-x);
+}
+
+.title {
+  margin: 0;
+  font: inherit;
+}
+
+.close {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+}
+
+.content {
+  flex: 1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: var(--bag-content-pad-bottom);
+}
+
+.list {
+  display: grid;
+  gap: var(--bag-list-gap);
+  margin: 0;
+  padding: 0 var(--bag-pad-x);
+  list-style: none;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 var(--bag-pad-x) var(--bag-footer-pad-bottom);
+  background: var(--color-bg);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--bag-button-height);
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}

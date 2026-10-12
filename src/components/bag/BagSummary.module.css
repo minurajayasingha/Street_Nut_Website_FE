@@ -1,0 +1,24 @@
+.summary {
+  padding: var(--bag-summary-top) var(--bag-pad-x) 0;
+}
+
+.note {
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.shipping {
+  margin-top: var(--bag-note-gap);
+}
+
+.subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--bag-subtotal-top);
+  text-transform: uppercase;
+}
+
+.subtotal p {
+  margin: 0;
+}

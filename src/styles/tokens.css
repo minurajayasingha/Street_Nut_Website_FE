@@ -125,6 +125,40 @@
   --product-atc-height: 35px;
   --product-accordion-pad-y: 4px;
   --product-lines-indent: 5px;
+  /* Bag drawer (measured on reference cart drawer at 1440 / 1025 / 768 / 600 / 390) */
+  --bag-width: 100%;
+  --bag-fs: var(--fs-12);
+  --bag-lh: var(--lh-page-12);
+  --bag-pad-x: 20px;
+  --bag-head-min: 67px;
+  --bag-head-pad-y: 25px;
+  --bag-content-pad-bottom: 54px;
+  --bag-footer-pad-bottom: 20px;
+  --bag-button-height: 35px;
+  --bag-list-gap: 16px;
+  --bag-item-gap: 20px;
+  --bag-image-width: 120px;
+  --bag-image-ratio: 4 / 5;
+  --bag-row-gap: 8px;
+  --bag-qty-top: 0px;
+  --bag-qty-w: 16px;
+  --bag-qty-h: 30px;
+  --bag-qty-gap: 4px;
+  --bag-summary-top: 16px;
+  --bag-note-gap: 10px;
+  --bag-subtotal-top: 16px;
+  --bag-overlay: rgb(255 255 255 / 0.5);
+  --z-bag-overlay: 60;
+  --z-bag: 70;
+}
+
+/* Bag drawer tablet width and sizes (reference tabletp token, 744px) */
+@media (min-width: 744px) {
+  :root {
+    --bag-width: 67.5vw;
+    --bag-content-pad-bottom: 161px;
+    --bag-image-width: 175px;
+  }
 }
 
 /* Desktop breakpoint measured on reference: 64.0625rem = 1025px */
@@ -178,5 +212,17 @@
     --product-info-pad-left: 0px;
     --product-info-max: 325px;
     --product-block-gap: 16px;
+
+    --bag-width: 40vw;
+    --bag-fs: var(--fs-10);
+    --bag-lh: var(--lh-10);
+    --bag-head-min: 0px;
+    --bag-head-pad-y: 20px;
+    --bag-content-pad-bottom: 55px;
+    --bag-qty-top: 8px;
+    --bag-qty-w: 20px;
+    --bag-qty-h: 14px;
+    --bag-qty-gap: 0px;
+    --bag-note-gap: 0px;
   }
 }

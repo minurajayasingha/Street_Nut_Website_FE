@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
+import { BagProvider } from '../../hooks/useBag';
 
 const nav = {
   primary: [{ label: 'New Arrivals', href: '/collections/new-arrivals' }],
@@ -164,4 +165,32 @@ test('drawer parent with children is a toggle button, not a link', async () => {
   await userEvent.click(screen.getByRole('button', { name: /^menu$/i }));
   const dialog = screen.getByRole('dialog');
   expect(within(dialog).queryByRole('link', { name: 'Support' })).not.toBeInTheDocument();
+});
+
+const sampleLine = {
+  id: 'a:M',
+  slug: 'a',
+  name: 'A Tee',
+  price: 45,
+  currency: 'EUR',
+  image: '/a.webp',
+  quantity: 2,
+};
+const withBag = (items) =>
+  render(
+    <MemoryRouter>
+      <BagProvider initialItems={items} initialInfo={{}}>
+        <Header siteName="Streetnut" nav={nav} announcement="x" />
+      </BagProvider>
+    </MemoryRouter>
+  );
+
+test('BAG shows the item count only when the bag has items', () => {
+  withBag([sampleLine]);
+  expect(screen.getByRole('button', { name: 'Bag (2)' })).toBeInTheDocument();
+});
+
+test('BAG shows no count for an empty bag', () => {
+  withBag([]);
+  expect(screen.getByRole('button', { name: 'Bag' })).toBeInTheDocument();
 });

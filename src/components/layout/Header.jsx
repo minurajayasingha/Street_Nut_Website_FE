@@ -5,6 +5,7 @@ import Drawer from '../ui/Drawer';
 import Caret from '../ui/Caret';
 import AnnouncementBar from './AnnouncementBar';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { useBag } from '../../hooks/useBag';
 import { resolveNav } from '../../utils/resolveNav';
 import styles from './Header.module.css';
 
@@ -100,6 +101,7 @@ export default function Header({ nav, siteName, announcement, region }) {
   const [openItem, setOpenItem] = useState(null);
   const isDesktop = useMediaQuery('(min-width: 1025px)');
   const { pathname } = useLocation();
+  const { count, openBag } = useBag();
   const { primary, secondary } = resolveNav(nav, pathname);
   const drawerPrimary = nav?.primary ?? [];
   const drawerSecondary = nav?.secondary ?? [];
@@ -129,7 +131,9 @@ export default function Header({ nav, siteName, announcement, region }) {
 
       <div className={styles.actions}>
         <button>Search</button>
-        <button>Bag</button>
+        <button type="button" onClick={openBag}>
+          {count > 0 ? `Bag (${count})` : 'Bag'}
+        </button>
         <button
           className={styles.menuButton}
           aria-expanded={menuOpen}
