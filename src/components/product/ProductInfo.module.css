@@ -1,0 +1,24 @@
+/* Product page rows are 22px tall on desktop (4px padding), tighter than the support FAQ */
+.accordion {
+  --accordion-pad-y: var(--product-accordion-pad-y);
+  margin-top: var(--product-block-gap);
+}
+
+/* Measured: the first row has no top padding, so it sits exactly one block gap under the button */
+.accordion > :first-child {
+  padding-top: 0;
+}
+
+.lines {
+  margin: 0;
+  padding: 0 0 0 var(--product-lines-indent);
+  list-style: none;
+}
+
+.description {
+  margin: var(--product-group-gap) 0 0;
+  font-size: var(--page-fs);
+  line-height: var(--page-lh);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+}

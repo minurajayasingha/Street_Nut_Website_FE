@@ -1,0 +1,23 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: var(--product-atc-height);
+  margin: var(--product-block-gap) 0 0;
+  padding: 0;
+  border: 0;
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: inherit;
+  font-size: var(--page-fs);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Disabled look is not measured on the reference: reuses the card sold-out opacity */
+.button:disabled {
+  opacity: var(--card-soldout-opacity);
+  cursor: not-allowed;
+}

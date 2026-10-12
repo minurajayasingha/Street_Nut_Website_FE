@@ -103,6 +103,28 @@
   --grid-pad-left: 20px;
   --grid-pad-right: 20px;
   --grid-top: 67px;
+
+  /* Product page (measured on reference /products/1905216-fresh-foils-tee-faded-black) */
+  --product-top: var(--header-height);
+  --product-info-pad-top: 16px;
+  --product-info-pad-left: 20px;
+  --product-info-pad-right: 20px;
+  --product-info-pad-bottom: 112px;
+  --product-info-max: none;
+  --product-slide-ratio: 4 / 5;
+  --product-gallery-gap: 10px;
+  --product-stack-gap: 8px;
+  --product-group-gap: 16px;
+  --product-block-gap: 24px;
+  --product-size-pad-x: 12px;
+  --product-size-offset: -10px;
+  --product-swatch-w: 45px;
+  --product-swatch-h: 56px;
+  --product-swatch-gap: 16px;
+  --product-swatch-border: 1px;
+  --product-atc-height: 35px;
+  --product-accordion-pad-y: 4px;
+  --product-lines-indent: 5px;
 }
 
 /* Desktop breakpoint measured on reference: 64.0625rem = 1025px */
@@ -148,5 +170,13 @@
     --grid-pad-left: 180px;
     --grid-pad-right: 4vw;
     --grid-top: 54px;
+
+    --product-top: 99px;
+    --product-columns: calc(45% + 87.75px) minmax(0, 1fr);
+    --product-col-gap: 50px;
+    --product-info-pad-top: 45px;
+    --product-info-pad-left: 0px;
+    --product-info-max: 325px;
+    --product-block-gap: 16px;
   }
 }

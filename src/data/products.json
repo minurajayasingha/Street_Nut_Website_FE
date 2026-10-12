@@ -13,6 +13,17 @@
     "images": [
       "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-BLACK/1.webp",
       "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-BLACK/2.webp"
+    ],
+    "description": "Sample description. Replace with the real product text.",
+    "info": [
+      {
+        "title": "Product details",
+        "body": ["Sample detail line one", "Sample detail line two"]
+      },
+      {
+        "title": "Care",
+        "body": ["Sample care line"]
+      }
     ]
   },
   {

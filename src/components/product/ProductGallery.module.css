@@ -1,0 +1,41 @@
+/* Mobile: swipeable slider, one full-width 4:5 slide at a time */
+.gallery {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  aspect-ratio: var(--product-slide-ratio);
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Desktop: images stacked in the left column */
+@media (min-width: 1025px) {
+  .gallery {
+    display: grid;
+    gap: var(--product-gallery-gap);
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .slide {
+    flex: none;
+  }
+}

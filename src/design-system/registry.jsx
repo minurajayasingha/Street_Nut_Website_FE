@@ -245,6 +245,76 @@ export const registry = [
     usage: `<ProductGrid products={products} />`,
     Demo: frame('/collections/all', 760),
   },
+  {
+    id: 'product-gallery',
+    group: 'Product components',
+    name: 'ProductGallery',
+    source: 'components/product/ProductGallery.jsx',
+    description:
+      'Product page images. Mobile: full-width 4:5 swipeable slider. Desktop (from 1025px): the same images stacked in the left column with a 10px gap. Renders nothing when the product has no images.',
+    props: [
+      { name: 'images', type: 'string[]', description: 'Image paths in order. Blank entries are skipped.' },
+      { name: 'label', type: 'string', description: 'Product name (with colour) used in the alt texts.' },
+    ],
+    usage: `<ProductGallery images={product.images} label="Black Fresh Foils Tee" />`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
+  {
+    id: 'color-switch',
+    group: 'Product components',
+    name: 'ColorSwitch',
+    source: 'components/product/ColorSwitch.jsx',
+    description:
+      'Row of 45x56 colour thumbnails (16px gap) linking to the other colours of a product family. The current colour has a black border. Renders nothing unless two or more colours exist.',
+    props: [
+      { name: 'products', type: 'product[]', description: 'Every colour of the family, from getProductFamily.' },
+      { name: 'currentSlug', type: 'string', description: 'Slug of the product being viewed.' },
+    ],
+    usage: `<ColorSwitch products={family} currentSlug={product.slug} />`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
+  {
+    id: 'size-picker',
+    group: 'Product components',
+    name: 'SizePicker',
+    source: 'components/product/SizePicker.jsx',
+    description:
+      'Size selector for the product page (radio group). Selected size is underlined; unavailable sizes are grey, struck through and not selectable. Renders nothing without sizes. Not the same as SizeList, which is the hover row on cards.',
+    props: [
+      { name: 'sizes', type: '{ label, available }[]', description: 'From productService.' },
+      { name: 'value', type: 'string | null', description: 'Selected size label.' },
+      { name: 'onChange', type: '(label) => void', description: 'Called with the picked size.' },
+    ],
+    usage: `<SizePicker sizes={product.sizes} value={size} onChange={setSize} />`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
+  {
+    id: 'add-to-bag',
+    group: 'Product components',
+    name: 'AddToBag',
+    source: 'components/product/AddToBag.jsx',
+    description:
+      'Full-width black ADD TO BAG button, 35px high (24px below the colour row on mobile, 16px on desktop). Disabled at half opacity. The bag does not exist yet: the page passes no onClick; the backend developer connects it later.',
+    props: [
+      { name: 'disabled', type: 'boolean', description: 'True until a size is chosen (when the product has sizes).' },
+      { name: 'onClick', type: '() => void', description: 'Optional. Not wired yet.' },
+    ],
+    usage: `<AddToBag disabled={!size} />`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
+  {
+    id: 'product-info',
+    group: 'Product components',
+    name: 'ProductInfo',
+    source: 'components/product/ProductInfo.jsx',
+    description:
+      'Expandable detail sections (Product details, Care, Fit, ...) from product.info, then the optional description. Entries without a title or text are skipped. Renders nothing when there is neither.',
+    props: [
+      { name: 'product', type: '{ description?, info?: { title, body: string | string[] }[] }', description: 'From productService.' },
+    ],
+    usage: `<ProductInfo product={product} />`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
 
   // ---- Page patterns ----
   {
@@ -256,6 +326,17 @@ export const registry = [
     props: [],
     usage: `<Route index element={<Home />} />`,
     Demo: frame('/', 560),
+  },
+  {
+    id: 'page-product',
+    group: 'Page patterns',
+    name: 'Product page',
+    source: 'pages/Product.jsx',
+    description:
+      'One page for every product at /products/:slug. Shows only the sections the product has data for: gallery, colour name, badge, sizes, colour thumbnails, add to bag, detail accordions, description. Unknown slug shows the not found page. Desktop: gallery left, sticky info column right (325px wide). Mobile: slider on top, info below.',
+    props: [],
+    usage: `<Route path="products/:slug" element={<Product />} />`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
   },
   {
     id: 'page-support',

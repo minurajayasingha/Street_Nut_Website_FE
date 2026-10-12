@@ -15,3 +15,6 @@ export const getProductBySlug = async (slug) => {
   const product = products.find((p) => p.slug === slug);
   return product ? withSizes(product) : null;
 };
+
+export const getProductFamily = async (family) =>
+  family ? products.filter((p) => p.family === family).map(withSizes) : [];

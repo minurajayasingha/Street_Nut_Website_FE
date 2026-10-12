@@ -49,14 +49,25 @@ test('not found heading uses the error tone', () => {
   expect(screen.getByRole('heading', { name: /not found/i })).toHaveAttribute('data-tone', 'error');
 });
 
-test.each([
-  ['/', /^home$/i],
-  ['/products/some-product', /^product$/i],
-])('%s is a centered placeholder without the error tone', (path, heading) => {
-  renderAt(path);
-  const h1 = screen.getByRole('heading', { level: 1, name: heading });
-  expect(h1).not.toHaveAttribute('data-tone');
-  expect(h1.parentElement.className).toMatch(/root/);
+test.each([['/', /^home$/i]])(
+  '%s is a centered placeholder without the error tone',
+  (path, heading) => {
+    renderAt(path);
+    const h1 = screen.getByRole('heading', { level: 1, name: heading });
+    expect(h1).not.toHaveAttribute('data-tone');
+    expect(h1.parentElement.className).toMatch(/root/);
+  }
+);
+
+test('/products/:slug shows the product, an unknown slug shows not found', async () => {
+  const { unmount } = renderAt('/products/fresh-foils-tee-black');
+  expect(await screen.findByRole('heading', { level: 1, name: 'Fresh Foils Tee' })).toBeInTheDocument();
+  unmount();
+  renderAt('/products/some-product');
+  expect(await screen.findByRole('heading', { name: /not found/i })).toHaveAttribute(
+    'data-tone',
+    'error'
+  );
 });
 
 test.each([

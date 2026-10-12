@@ -9,13 +9,19 @@ Each colour of a product is its own entry (own slug, own card), linked to its si
 | Field | Meaning |
 |---|---|
 | `id`, `slug` | Unique. The slug is the URL: `/products/<slug>`. |
-| `family` | Shared by every colour of one product (for example `fresh-foils-tee`). The product page will use it to offer the other colours (not built yet). |
+| `family` | Shared by every colour of one product (for example `fresh-foils-tee`). The product page uses it to show the other colours as thumbnails. |
 | `name`, `color` | `name` is shown on the card; `color` is used for the accessible names, image alt text and size-link labels, and, later, the colour switch on the product page. |
 | `price`, `currency` | Number and ISO code (`EUR`). |
 | `collections` | Handles this product appears in: `tees`, `knits`, ... `/collections/<handle>` lists them. `/collections/all` lists everything. Handles are lower-case and matched exactly (`/collections/Tees` would show nothing). |
-| `images` | `images[0]` is the card image, `images[1]` the hover image (swipe slide on mobile); any further images are reserved for the product page gallery (not built yet). Paths start with `/products/` and match the file names on disk exactly. |
+| `images` | `images[0]` is the card image, `images[1]` the hover image (swipe slide on mobile); every image is shown in the product page gallery, in order. Paths start with `/products/` and match the file names on disk exactly. |
 | `sizes` | Only for products without a stock entry: `[{ "label": "S", "available": true }]` (ignored if the slug has an entry in `stock.json`). A single "One size" entry makes a one-size card. |
 | `badge`, `colors`, `soldOut` | Optional: grey note on the card, colour count, forced sold-out. |
+| `description` | Optional. One short paragraph shown under the product details. Hidden when empty. |
+| `info` | Optional. `[{ "title": "Care", "body": ["Wash cold", "Do not tumble dry"] }]`. Each entry becomes an accordion (`body` is a string or a list of lines). Entries with no title or no text are skipped, and with no entries nothing is shown. Add any section you like (Materials, Fit, Shipping...): no code change needed. |
+
+## What the product page shows
+
+Only the sections that have data. Required: `name`, `price` and `images[0]`. Everything else is optional and leaves no heading or gap when missing: colour name (`color`), `badge`, sizes (from stock; hidden for one-size products), colour thumbnails (when two or more products share a `family`), `description`, `info`. Sold-out products show SOLD OUT instead of the size list and ADD TO BAG.
 
 ## Stock (`src/data/stock.json`)
 
