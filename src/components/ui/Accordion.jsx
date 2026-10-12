@@ -2,7 +2,8 @@ import { useState } from 'react';
 import Caret from './Caret';
 import styles from './Accordion.module.css';
 
-export default function Accordion({ items, className }) {
+// onChange(id | null) reports the open item after every toggle (null when it closes).
+export default function Accordion({ items, className, onChange }) {
   const [openId, setOpenId] = useState(null);
 
   return (
@@ -17,7 +18,11 @@ export default function Accordion({ items, className }) {
               className={styles.header}
               aria-expanded={open}
               aria-controls={panelId}
-              onClick={() => setOpenId(open ? null : item.id)}
+              onClick={() => {
+                const next = open ? null : item.id;
+                setOpenId(next);
+                onChange?.(next);
+              }}
             >
               <span>{item.title}</span>
               <Caret

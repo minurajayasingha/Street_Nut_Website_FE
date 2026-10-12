@@ -1,5 +1,6 @@
 import products from '../data/products.json';
 import stock from '../data/stock.json';
+import sizeCharts from '../data/size-charts.json';
 import { sizesFromStock } from '../utils/sizesFromStock';
 
 // Products with a stock entry get their sizes from it; the rest keep the sizes written in products.json.
@@ -18,3 +19,7 @@ export const getProductBySlug = async (slug) => {
 
 export const getProductFamily = async (family) =>
   family ? products.filter((p) => p.family === family).map(withSizes) : [];
+
+// A size chart is { notes?, units: [{ id, label, rows }], image? }. Which garment uses which chart
+// is decided by the product's `info` entry: { title: 'Size guide', sizeChart: 'tops' }.
+export const getSizeChart = async (key) => (key && sizeCharts[key]) || null;

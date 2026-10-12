@@ -1,6 +1,7 @@
 /* Product page rows are 22px tall on desktop (4px padding), tighter than the support FAQ */
 .accordion {
   --accordion-pad-y: var(--product-accordion-pad-y);
+  --accordion-content-gap: var(--product-content-gap);
   margin-top: var(--product-block-gap);
 }
 
@@ -15,10 +16,26 @@
   list-style: none;
 }
 
-.description {
-  margin: var(--product-group-gap) 0 0;
+/* Chat and the shipping note: same type as the rest of the info column */
+.afterAccordion,
+.afterButton,
+.note {
+  margin: 0;
   font-size: var(--page-fs);
   line-height: var(--page-lh);
   font-weight: var(--fw-medium);
   text-transform: uppercase;
+}
+
+/* Measured: first line sits 4px under the last accordion row, the note 8px under chat */
+.afterAccordion {
+  margin-top: var(--product-chat-gap);
+}
+
+.afterButton {
+  margin-top: var(--product-block-gap);
+}
+
+.note {
+  margin-top: var(--product-stack-gap);
 }

@@ -4,12 +4,15 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import Product from './Product';
 import { BagProvider } from '../hooks/useBag';
 import BagDrawer from '../components/bag/BagDrawer';
-import { getProductBySlug, getProductFamily } from '../services/productService';
+import { getProductBySlug, getProductFamily, getSizeChart } from '../services/productService';
+import { getSiteInfo } from '../services/siteService';
 
 vi.mock('../services/productService', () => ({
   getProductBySlug: vi.fn(),
   getProductFamily: vi.fn(),
+  getSizeChart: vi.fn(),
 }));
+vi.mock('../services/siteService', () => ({ getSiteInfo: vi.fn() }));
 
 const base = {
   id: 'a-black',
@@ -44,6 +47,43 @@ const renderAt = (path) =>
 
 beforeEach(() => {
   getProductFamily.mockResolvedValue([]);
+  getSizeChart.mockResolvedValue(null);
+  getSiteInfo.mockResolvedValue({});
+});
+
+const withGuide = { ...minimal, info: [{ title: 'Size guide', sizeChart: 'tops' }] };
+const chartBlocks = { units: [{ id: 'in', label: 'Inches', rows: [['Size', 'S'], ['Chest', '21']] }] };
+
+test('a size guide row opens to the chart the product points at', async () => {
+  getProductBySlug.mockResolvedValue(withGuide);
+  getSizeChart.mockResolvedValue(chartBlocks);
+  renderAt('/products/m');
+  await userEvent.click(await screen.findByRole('button', { name: /Size guide/ }));
+  expect(screen.getByRole('table', { name: 'Inches size chart' })).toBeInTheDocument();
+  expect(getSizeChart).toHaveBeenCalledWith('tops');
+});
+
+test('a size guide with an unknown chart shows no row', async () => {
+  getProductBySlug.mockResolvedValue(withGuide);
+  getSizeChart.mockResolvedValue(null);
+  renderAt('/products/m');
+  await screen.findByRole('heading', { name: 'M Tee' });
+  expect(screen.queryByRole('button', { name: /Size guide/ })).toBeNull();
+});
+
+test('chat and the shipping note come from the site info', async () => {
+  getProductBySlug.mockResolvedValue(minimal);
+  getSiteInfo.mockResolvedValue({ chat: 'Chat', productNote: 'Free shipping over 150.' });
+  renderAt('/products/m');
+  expect(await screen.findByText('Chat')).toBeInTheDocument();
+  expect(screen.getByText('Free shipping over 150.')).toBeInTheDocument();
+});
+
+test('without site chat or note nothing extra shows', async () => {
+  getProductBySlug.mockResolvedValue(minimal);
+  renderAt('/products/m');
+  await screen.findByRole('heading', { name: 'M Tee' });
+  expect(screen.queryByText('Chat')).toBeNull();
 });
 
 test('a complete product shows every section', async () => {

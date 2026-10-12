@@ -1,0 +1,35 @@
+{
+  "tops": {
+    "notes": [
+      "Sample note: model height and the size worn.",
+      "All measurements are taken across the garment while laid flat."
+    ],
+    "units": [
+      {
+        "id": "in",
+        "label": "Inches",
+        "rows": [
+          ["Size", "XS", "S", "M", "L", "XL", "XXL"],
+          ["Chest", "19", "20", "21", "22", "23", "24"],
+          ["Front length", "26", "27", "28", "29", "30", "31"],
+          ["Sleeve length", "7", "8", "8", "9", "9", "10"],
+          ["Shoulder width", "17", "18", "19", "20", "21", "22"]
+        ]
+      },
+      {
+        "id": "cm",
+        "label": "CM",
+        "rows": [
+          ["Size", "XS", "S", "M", "L", "XL", "XXL"],
+          ["Chest", "48", "51", "53", "56", "58", "61"],
+          ["Front length", "66", "69", "71", "74", "76", "79"],
+          ["Sleeve length", "18", "20", "20", "23", "23", "25"],
+          ["Shoulder width", "43", "46", "48", "51", "53", "56"]
+        ]
+      }
+    ],
+    "image": "/size-charts/tops.svg",
+    "imageSize": [240, 200],
+    "imageAlt": "Diagram showing where the chest, front length, sleeve length and shoulder width are measured"
+  }
+}

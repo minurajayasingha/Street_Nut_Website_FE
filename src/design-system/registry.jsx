@@ -33,6 +33,7 @@ export const registry = [
     props: [
       { name: 'items', type: '{ id, title, content }[]', description: 'Rows to render.' },
       { name: 'className', type: 'string', description: 'Optional wrapper class.' },
+      { name: 'onChange', type: '(id | null) => void', description: 'Optional. Called with the open item id after every toggle, null when it closes.' },
     ],
     usage: `<Accordion items={[{ id: 'a', title: 'Question', content: 'Answer' }]} />`,
     Demo: AccordionDemo,
@@ -307,16 +308,37 @@ export const registry = [
     Demo: frame('/products/fresh-foils-tee-black', 900),
   },
   {
+    id: 'size-chart',
+    group: 'Product components',
+    name: 'SizeChart',
+    source: 'components/product/SizeChart.jsx',
+    description:
+      'Size guide content inside the product page accordion: plain uppercase notes, an INCHES | CM toggle (underlined = active, other grey, shown only with two or more units), a compact table with the size row as header and grey values, and an optional garment diagram. The table scrolls sideways inside the column when it is too wide and is keyboard-focusable. Renders nothing without a unit.',
+    props: [
+      {
+        name: 'chart',
+        type: '{ notes?: string[], units: { id, label, rows: string[][] }[], image?: string, imageSize?: [number, number], imageAlt?: string }',
+        description: 'From getSizeChart. rows[0] is the header (Size, XS, S...); the first cell of every row is its label.',
+      },
+    ],
+    usage: `<SizeChart chart={charts.tops} />`,
+    Demo: frame('/products/fresh-foils-tee-black', 900),
+  },
+  {
     id: 'product-info',
     group: 'Product components',
     name: 'ProductInfo',
     source: 'components/product/ProductInfo.jsx',
     description:
-      'Expandable detail sections (Product details, Care, Fit, ...) from product.info, then the optional description. Entries without a title or text are skipped. Renders nothing when there is neither.',
+      'Expandable rows (Product details, Size guide, Shipping & returns, ...) from product.info in the order written, then a CHAT line and a note. A row is text lines or a size chart table. Entries without text, or naming a chart that does not exist, are skipped. The note is the site-wide one unless the product has its own description. Renders nothing when there is nothing to show.',
     props: [
-      { name: 'product', type: '{ description?, info?: { title, body: string | string[] }[] }', description: 'From productService.' },
+      { name: 'product', type: '{ description?, info?: ({ title, body: string | string[] } | { title, sizeChart: string })[] }', description: 'From productService.' },
+      { name: 'charts', type: '{ [key]: block[] }', description: 'Size charts the page loaded with getSizeChart, by key.' },
+      { name: 'chat', type: 'string', description: 'Label of the CHAT line (site.json). Hidden when empty. No action yet.' },
+      { name: 'note', type: 'string', description: 'Site-wide note under CHAT (site.json productNote). Replaced by product.description when present.' },
+      { name: 'scrollRef', type: 'React ref', description: 'The info column when it scrolls on its own (desktop). Opening a row smoothly scrolls the column so that row sits at its top.' },
     ],
-    usage: `<ProductInfo product={product} />`,
+    usage: `<ProductInfo product={product} charts={charts} chat={site.chat} note={site.productNote} />`,
     Demo: frame('/products/fresh-foils-tee-black', 900),
   },
 
@@ -409,7 +431,7 @@ export const registry = [
     name: 'Product page',
     source: 'pages/Product.jsx',
     description:
-      'One page for every product at /products/:slug. Shows only the sections the product has data for: gallery, colour name, badge, sizes, colour thumbnails, add to bag, detail accordions, description. Unknown slug shows the not found page. Desktop: gallery left, sticky info column right (325px wide). Mobile: slider on top, info below.',
+      'One page for every product at /products/:slug. Shows only the sections the product has data for: gallery, colour name, badge, sizes, colour thumbnails, add to bag, detail accordions, description. Unknown slug shows the not found page. Desktop: gallery left, sticky info column right (325px wide) that scrolls on its own, separate from the photos; opening a row scrolls it to the top of that column. Mobile: slider on top, info below, one page scroll.',
     props: [],
     usage: `<Route path="products/:slug" element={<Product />} />`,
     Demo: frame('/products/fresh-foils-tee-black', 900),

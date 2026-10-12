@@ -36,3 +36,14 @@ test('clicking an open header closes it', async () => {
   await userEvent.click(screen.getByRole('button', { name: 'First' }));
   expect(screen.queryByText('First body')).not.toBeInTheDocument();
 });
+
+test('onChange reports the open id, then null when it closes', async () => {
+  const onChange = vi.fn();
+  render(<Accordion items={items} onChange={onChange} />);
+  await userEvent.click(screen.getByRole('button', { name: 'First' }));
+  expect(onChange).toHaveBeenLastCalledWith('a');
+  await userEvent.click(screen.getByRole('button', { name: 'Second' }));
+  expect(onChange).toHaveBeenLastCalledWith('b');
+  await userEvent.click(screen.getByRole('button', { name: 'Second' }));
+  expect(onChange).toHaveBeenLastCalledWith(null);
+});

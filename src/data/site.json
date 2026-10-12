@@ -1,6 +1,8 @@
 {
   "name": "Streetnut",
   "announcement": "Free standard shipping on orders over 150 EUR",
+  "chat": "Chat",
+  "productNote": "Free standard shipping on orders over 150 EUR. Exclusions apply.",
   "region": {
     "label": "US / $",
     "mobileLabel": "USD / $"

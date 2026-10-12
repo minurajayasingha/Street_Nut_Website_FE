@@ -125,6 +125,20 @@
   --product-atc-height: 35px;
   --product-accordion-pad-y: 4px;
   --product-lines-indent: 5px;
+  --product-chat-gap: 4px;
+  --product-content-gap: 4px;
+
+  /* Product size chart (desktop measured on the reference size guide; the diagram size and gap are not) */
+  --chart-toggle-gap: 19px;
+  --chart-toggle-pad: 10px;
+  --chart-table-gap: 11px;
+  --chart-cell-pad-top: 1px;
+  --chart-cell-pad-bottom: 8px;
+  --chart-label-w: 100px;
+  --chart-label-pad: 12px;
+  --chart-cell-w: 31px;
+  --chart-image-w: 200px;
+  --chart-image-gap: 24px;
   /* Bag drawer (measured on reference cart drawer at 1440 / 1025 / 768 / 600 / 390) */
   --bag-width: 100%;
   --bag-fs: var(--fs-12);

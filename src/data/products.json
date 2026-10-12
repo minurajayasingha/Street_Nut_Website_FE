@@ -14,15 +14,18 @@
       "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-BLACK/1.webp",
       "/products/FRESH-FOILS-TEE/FRESH-FOILS-TEE-BLACK/2.webp"
     ],
-    "description": "Sample description. Replace with the real product text.",
     "info": [
       {
         "title": "Product details",
-        "body": ["Sample detail line one", "Sample detail line two"]
+        "body": ["Sample detail line one", "Sample detail line two", "Sample detail line three"]
       },
       {
-        "title": "Care",
-        "body": ["Sample care line"]
+        "title": "Size guide",
+        "sizeChart": "tops"
+      },
+      {
+        "title": "Shipping & returns",
+        "body": ["Sample shipping line", "Sample returns line"]
       }
     ]
   },
@@ -88,6 +91,12 @@
     "images": [
       "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-BLACK/1.webp",
       "/products/HIGH-ROLLERS-TEE/HIGH-ROLLERS-TEE-BLACK/2.webp"
+    ],
+    "info": [
+      {
+        "title": "Size guide",
+        "sizeChart": "tops"
+      }
     ]
   },
   {

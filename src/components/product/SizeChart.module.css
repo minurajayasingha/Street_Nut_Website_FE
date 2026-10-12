@@ -1,0 +1,78 @@
+.chart {
+  font-size: var(--page-fs);
+  line-height: var(--page-lh);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+}
+
+.note {
+  margin: 0;
+}
+
+.note + .note {
+  margin-top: var(--page-block-gap);
+}
+
+/* INCHES | CM: the active unit is underlined, the other grey, a thin bar between */
+.toggle {
+  display: flex;
+  margin-top: var(--chart-toggle-gap);
+}
+
+.unit {
+  padding: 0 var(--chart-toggle-pad) 0 0;
+  color: var(--color-muted);
+  font: inherit;
+  text-transform: inherit;
+}
+
+.unit + .unit {
+  padding: 0 0 0 var(--chart-toggle-pad);
+  border-left: var(--product-swatch-border) solid var(--color-text);
+}
+
+.unit[aria-pressed='true'] {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.scroll {
+  margin-top: var(--chart-table-gap);
+  overflow-x: auto;
+}
+
+.table {
+  min-width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.label,
+.cell {
+  padding: var(--chart-cell-pad-top) 0 var(--chart-cell-pad-bottom);
+  font-weight: inherit;
+}
+
+.label {
+  min-width: var(--chart-label-w);
+  padding-right: var(--chart-label-pad);
+  text-align: left;
+}
+
+.cell {
+  width: var(--chart-cell-w);
+  min-width: var(--chart-cell-w);
+  text-align: center;
+}
+
+.value {
+  color: var(--color-muted);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  max-width: var(--chart-image-w);
+  height: auto;
+  margin-top: var(--chart-image-gap);
+}

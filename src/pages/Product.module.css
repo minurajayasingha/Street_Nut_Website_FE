@@ -45,8 +45,17 @@
     padding-left: var(--page-left);
   }
 
+  /* Measured: the sticky column is as tall as the window under the header and scrolls on its own
+     (hidden scrollbar), separate from the photos */
   .info {
     position: sticky;
     top: var(--header-height);
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  .info::-webkit-scrollbar {
+    display: none;
   }
 }

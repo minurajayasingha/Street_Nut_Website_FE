@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" fill="none" stroke="#757575" stroke-width="1" font-family="Helvetica, Arial, sans-serif" font-size="7" letter-spacing="0.5">
+  <!-- Streetnut placeholder diagram: t-shirt outline with the four measurements -->
+  <path d="M82 36 L58 48 L34 78 L52 90 L68 74 L68 168 H172 V74 L188 90 L206 78 L182 48 L158 36 C150 46 90 46 82 36 Z" stroke="#000"/>
+  <!-- chest -->
+  <path d="M68 96 H172 M68 92 V100 M172 92 V100"/>
+  <text x="120" y="92" text-anchor="middle" fill="#757575" stroke="none">CHEST</text>
+  <!-- front length -->
+  <path d="M120 44 V168 M116 44 H124 M116 168 H124" stroke-dasharray="3 2"/>
+  <text x="124" y="136" fill="#757575" stroke="none">FRONT LENGTH</text>
+  <!-- sleeve -->
+  <path d="M30 70 L48 94 M26 74 L34 66 M44 98 L52 90"/>
+  <text x="8" y="112" fill="#757575" stroke="none">SLEEVE LENGTH</text>
+  <!-- shoulder -->
+  <path d="M82 28 H158 M82 24 V32 M158 24 V32"/>
+  <text x="120" y="22" text-anchor="middle" fill="#757575" stroke="none">SHOULDER WIDTH</text>
+</svg>
